@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eros Glamour | Luxury Intimate Wellness & Companion Dolls (US & CA)</title>
+    <meta name="description" content="North America's premier trilingual luxury intimate wellness boutique. Ultra-thin condoms, organic lubricants, female & male toys, and silicone companion dolls.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                            950: '#4c0519',
+                        },
+                        pink: {
+                            400: '#f472b6',
+                            500: '#ec4899',
+                            600: '#db2777',
+                            700: '#be185d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif; 
+        }
+        
+        .glass-header { 
+            background: rgba(255, 241, 242, 0.92); 
+            backdrop-filter: blur(16px); 
+        }
+
+        .pink-glow { 
+            text-shadow: 0 0 20px rgba(244, 63, 94, 0.5), 0 0 35px rgba(236, 72, 153, 0.3); 
+        }
+
+        .pink-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .pink-card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(244, 63, 94, 0.25);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff1f2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fda4af;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f43f5e;
+        }
+    </style>
+</head>
+<body class="bg-rose-50/40 text-gray-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- ==================== HEADER (LEVEL 1 GLOBAL NAV) ==================== -->
+    <header class="sticky top-0 z-50 glass-header border-b border-rose-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            <!-- Compact Brand Logo -->
+            <div class="flex items-center space-x-2.5 cursor-pointer group" onclick="goToTier(2)">
+                <div class="bg-gradient-to-tr from-rose-600 via-pink-500 to-rose-400 text-white w-9 h-9 rounded-2xl shadow-md group-hover:scale-105 transition-transform flex items-center justify-center">
+                    <i class="fa-solid fa-heart text-sm animate-pulse"></i>
+                </div>
+                <div>
+                    <span class="text-lg font-black tracking-tight bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 bg-clip-text text-transparent">Eros Glamour</span>
+                    <span class="block text-[9px] font-extrabold text-rose-400 tracking-wider uppercase leading-none" id="nav-subtitle">US & CA · Luxury Intimate Boutique</span>
+                </div>
+            </div>
+
+            <!-- Live Ticker Hub -->
+            <div class="hidden md:flex items-center space-x-2 bg-rose-100/80 border border-rose-200/80 px-3.5 py-1.5 rounded-full text-xs font-semibold text-rose-900 shadow-inner">
+                <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                <span id="ticker-label">Active Dispatch Hub:</span>
+                <span id="ticker-city" class="underline decoration-rose-400 font-extrabold text-rose-700">Loading...</span>
+                <span id="ticker-countdown" class="bg-rose-600 text-white px-2 py-0.5 rounded-full text-[10px] font-mono">10s</span>
+            </div>
+
+            <!-- Language Switcher & Live Chat CTA -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                
+                <!-- Multi-lingual Toggle -->
+                <div class="bg-white/90 border border-rose-200 rounded-xl p-0.5 flex text-xs font-bold shadow-sm">
+                    <button id="lang-en" onclick="setLanguage('en')" class="px-2 py-1 rounded-lg transition text-rose-700">🇺🇸 EN</button>
+                    <button id="lang-fr" onclick="setLanguage('fr')" class="px-2 py-1 rounded-lg transition text-rose-700">🇨🇦 FR</button>
+                    <button id="lang-zh" onclick="setLanguage('zh')" class="px-2 py-1 rounded-lg transition text-rose-700">🇨🇳 中文</button>
+                </div>
+
+                <!-- Tier Indicator Badge -->
+                <span id="tier-indicator" class="hidden xl:inline-block text-[11px] bg-rose-100 text-rose-800 px-3 py-1 rounded-xl font-extrabold border border-rose-200 shadow-sm">
+                    Tier 1: Gateway
+                </span>
+
+                <!-- Live Chat Button -->
+                <button onclick="openLiveSupport()" class="text-xs bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 hover:from-rose-600 hover:to-pink-700 text-white px-3.5 py-2 sm:px-4 rounded-xl font-extrabold transition shadow-md hover:shadow-rose-300 flex items-center">
+                    <i class="fa-solid fa-headset mr-1.5 text-sm"></i> 
+                    <span id="btn-live-chat">Live Chat (24/7)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="flex-grow">
+        
+        <!-- ==================== TIER 1: HERO GATEWAY BANNER ==================== -->
+        <section id="hero-section" class="relative bg-gray-950 text-white py-12 sm:py-16 overflow-hidden border-b border-rose-900/40">
+            
+            <!-- Sensual Ambient Background Canvas Pattern -->
+            <div class="absolute inset-0 opacity-30">
+                <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1920&q=80" alt="Rose Romance Ambient" class="w-full h-full object-cover filter blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-r from-gray-950 via-rose-950/80 to-gray-950"></div>
+            </div>
+            
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span id="hero-badge" class="inline-block bg-gradient-to-r from-rose-500/30 to-pink-500/30 text-rose-200 border border-rose-400/40 text-[10px] sm:text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 backdrop-blur-md shadow-lg">
+                    Sensual Romance & Glamour · US & Canada Express
+                </span>
+                
+                <h1 id="hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-4 pink-glow text-transparent bg-clip-text bg-gradient-to-r from-rose-100 via-pink-200 to-rose-300">
+                    Awaken Your Intimate Desires
+                </h1>
+                
+                <p id="hero-desc" class="max-w-3xl mx-auto text-xs sm:text-sm text-rose-200/90 mb-8 font-light leading-relaxed">
+                    Explore FDA-compliant ultra-thin 0.01 condoms, organic lubricants, medical silicone massagers, and hyper-realistic companion dolls in 100% plain, discreet packaging across all 50 US States & Canadian Provinces.
+                </p>
+                            
+                <!-- Search & Filter Hub -->
+                <div class="max-w-4xl mx-auto bg-white/95 backdrop-blur-xl p-3 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-3 text-gray-800 border border-rose-200">
+                    <div class="flex-1 flex items-center px-4 py-3 bg-rose-50/60 rounded-xl border border-rose-100">
+                        <i class="fa-solid fa-location-dot text-rose-500 mr-3 text-sm"></i>
+                        <select id="filter-city" onchange="applyFilters()" class="w-full bg-transparent outline-none text-xs sm:text-sm font-bold text-gray-800 cursor-pointer">
+                            <option value="">All US & CA Dispatch Hubs</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex-1 flex items-center px-4 py-3 bg-rose-50/60 rounded-xl border border-rose-100">
+                        <i class="fa-solid fa-layer-group text-rose-500 mr-3 text-sm"></i>
+                        <select id="filter-type" onchange="applyFilters()" class="w-full bg-transparent outline-none text-xs sm:text-sm font-bold text-gray-800 cursor-pointer">
+                            <option value="">All Product Categories</option>
+                        </select>
+                    </div>
+                    
+                    <button onclick="applyFilters()" class="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-extrabold px-8 py-3 rounded-xl transition flex items-center justify-center text-xs sm:text-sm shadow-md">
+                        <i class="fa-solid fa-magnifying-glass mr-2"></i> <span id="btn-search">Search Catalog</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DYNAMIC CONTENT AREA -->
+        <main id="main-content-area" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <!-- Rendered by JavaScript dynamically -->
+        </main>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-gray-950 text-rose-200/80 py-10 border-t border-rose-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex justify-center flex-wrap gap-4 sm:gap-8 text-rose-200 font-bold text-xs sm:text-sm">
+                <span class="flex items-center"><i class="fa-solid fa-truck-fast text-rose-500 mr-1.5"></i> 🇺🇸 50 US States Express</span>
+                <span class="flex items-center"><i class="fa-solid fa-box-archive text-rose-500 mr-1.5"></i> 🇨🇦 All CA Provinces Dispatch</span>
+                <span class="flex items-center"><i class="fa-solid fa-shield-halved text-rose-500 mr-1.5"></i> 100% Plain Unbranded Packaging</span>
+                <span class="flex items-center"><i class="fa-solid fa-lock text-rose-500 mr-1.5"></i> 256-Bit SSL Encrypted Checkout</span>
+            </div>
+            
+            <div class="text-xs text-rose-400/80 max-w-2xl mx-auto leading-relaxed">
+                © 2026 Eros Glamour North America Inc. All Rights Reserved. Products intended for adults 18+ (21+ where applicable). Discrete billing under "EG Logistics".
+            </div>
+            
+            <p class="text-xs text-rose-300">
+                <span id="footer-agent-text">Confidential Product Support & Custom Orders:</span> 
+                <button onclick="openLiveSupport()" class="text-pink-400 hover:text-pink-300 underline font-extrabold ml-1 inline-flex items-center">
+                    <i class="fa-solid fa-comments mr-1"></i> <span id="footer-link-chat">Connect to Live Agent</span>
+                </button>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ENGINE ==================== -->
+    <script>
+        // --- MULTI-LINGUAL DICTIONARY ---
+        const i18n = {
+            en: {
+                navSubtitle: "US & CA · Luxury Intimate Boutique",
+                tickerLabel: "Active Dispatch Hub:",
+                tierGateway: "Tier 1: Gateway",
+                tierCategory: "Tier 2: Category Hub",
+                tierCatalog: "Tier 3: Paginated Catalog",
+                tierDetail: "Tier 4: Detailed Specifications",
+                btnLiveChat: "Live Chat (24/7)",
+                heroBadge: "Sensual Romance & Glamour · US & Canada Express",
+                heroTitle: "Awaken Your Intimate Desires",
+                heroDesc: "Explore FDA-compliant ultra-thin 0.01 condoms, organic lubricants, medical silicone massagers, and hyper-realistic companion dolls in 100% plain, discreet packaging across all 50 US States & Canadian Provinces.",
+                allCities: "All US & CA Dispatch Hubs",
+                allCategories: "All Product Categories",
+                btnSearch: "Search Catalog",
+                catCondomTitle: "Condoms & Intimate Wellness",
+                catCondomDesc: "Ultra-thin 0.01 latex & non-latex condoms, organic water-based hyaluronic lubricants, and romantic massage oils.",
+                catFemaleTitle: "Female Toys & Massage Wands",
+                catFemaleDesc: "FDA-compliant medical silicone clitoral suction massagers, whisper-quiet wands, and app-controlled love eggs.",
+                catMaleTitle: "Male Performance & Strokers",
+                catMaleDesc: "Automatic hands-free rotating strokers, 3D textured inner sleeves, and 40°C thermal warming devices.",
+                catDollTitle: "Silicone & TPE Companion Dolls",
+                catDollDesc: "Hyper-realistic full-size silicone & TPE companion dolls with articulated alloy skeletons and soft touch skin.",
+                lvl2Title: "Level 2: Select Main Category Sector",
+                lvl2Sub: "Explore our 4 primary intimate wellness sectors with verified stock in North America.",
+                btnViewAll: "View All 2M Catalog Items",
+                lvl3Title: "Level 3: Catalog Listings",
+                lvl3Sub: "Showing verified real inventory",
+                discreetBadge: "100% Plain Packaging Guarantee",
+                itemCardTag: "Sensual Glamour",
+                btnViewSpecs: "Full Specs",
+                btnBackList: "Back to Catalog List",
+                techSpecsHeader: "Technical & Material Specifications",
+                matLabel: "Material Standard:",
+                matValue: "FDA Hypoallergenic Medical Silicone / Pure Organic / Platinum TPE",
+                waterproofLabel: "Waterproof Grade:",
+                waterproofValue: "IPX7 Submersible & Easy Washable",
+                chargeLabel: "Power & Motor:",
+                chargeValue: "Magnetic USB Quick Charge / Whisper Quiet Motor",
+                hubLabel: "Fulfillment Warehouse:",
+                liveChatBannerTitle: "Discrete Order Placement & Stock Verification",
+                liveChatBannerDesc: "Click below to connect directly with a live specialist on Tawk.to for confidential inquiries, stock confirmation, or discreet order processing.",
+                btnConnectAgent: "Connect to Live Specialist (客服)",
+                footerAgentText: "Confidential Product Support & Custom Orders:",
+                footerLinkChat: "Connect to Live Agent",
+                pagePrev: "Previous",
+                pageNext: "Next"
+            },
+            fr: {
+                navSubtitle: "ÉU & CA · Boutique Intime de Luxe",
+                tickerLabel: "Centre d'Expédition Actif:",
+                tierGateway: "Niveau 1: Portail",
+                tierCategory: "Niveau 2: Hub Catégories",
+                tierCatalog: "Niveau 3: Catalogue Paginé",
+                tierDetail: "Niveau 4: Spécifications Détaillées",
+                btnLiveChat: "Clavardage 24/7",
+                heroBadge: "Romance Sensuelle & Élégance · ÉU & Canada Express",
+                heroTitle: "Éveillez Vos Désirs Intimes",
+                heroDesc: "Découvrez des préservatifs ultra-fins 0.01 certifiés FDA, des lubrifiants biologiques, des jouets en silicone médical et des poupées ultra-réalistes, livrés dans un emballage 100% discret à travers les États-Unis et le Canada.",
+                allCities: "Tous les Centres de Distribution (ÉU & CA)",
+                allCategories: "Toutes les Catégories",
+                btnSearch: "Rechercher",
+                catCondomTitle: "Préservatifs & Soins Intimes",
+                catCondomDesc: "Préservatifs ultra-fins 0.01, lubrifiants biologiques à l'acide hyaluronique et huiles de massage romantiques.",
+                catFemaleTitle: "Jouets Féminins & Massage",
+                catFemaleDesc: "Stimulateurs clitoridiens en silicone médical, baguettes silencieuses et œufs vibrants télécommandés.",
+                catMaleTitle: "Jouets Masculins & Performance",
+                catMaleDesc: "Gaines de massage automatiques mains libres, manchons texturés 3D et dispositifs chauffants thermiques.",
+                catDollTitle: "Poupées Silicone VIP & TPE",
+                catDollDesc: "Poupées de compagnie grandeur nature en silicone et TPE avec squelette articulé en alliage.",
+                lvl2Title: "Niveau 2: Sélectionner une Catégorie",
+                lvl2Sub: "Explorez nos 4 principaux secteurs de bien-être intime en Amérique du Nord.",
+                btnViewAll: "Voir les 2M d'articles",
+                lvl3Title: "Niveau 3: Liste du Catalogue",
+                lvl3Sub: "Articles vérifiés disponibles",
+                discreetBadge: "Garantie d'Emballage 100% Discret",
+                itemCardTag: "Sélection Sensuelle",
+                btnViewSpecs: "Spécifications",
+                btnBackList: "Retour au Catalogue",
+                techSpecsHeader: "Spécifications Techniques et Matériaux",
+                matLabel: "Norme de Matériau:",
+                matValue: "Silicone Médical Hypoallergénique FDA / Bio Pur / TPE Platine",
+                waterproofLabel: "Étanchéité:",
+                waterproofValue: "IPX7 Submersible & Lavable",
+                chargeLabel: "Alimentation & Moteur:",
+                chargeValue: "Charge Rapide USB Magnétique / Moteur Ultra-Silencieux",
+                hubLabel: "Centre de Distribution:",
+                liveChatBannerTitle: "Commande Discrète & Vérification des Stocks",
+                liveChatBannerDesc: "Cliquez ci-dessous pour contacter un spécialiste en direct sur Tawk.to pour toute question confidentielle ou confirmation de stock.",
+                btnConnectAgent: "Discuter avec un Agent (客服)",
+                footerAgentText: "Support Produit Confidentiel & Commandes:",
+                footerLinkChat: "Connexion Agent en Direct",
+                pagePrev: "Précédent",
+                pageNext: "Suivant"
+            },
+            zh: {
+                navSubtitle: "北美美加 · 精品成人私密商城",
+                tickerLabel: "实时发货仓：",
+                tierGateway: "第1级：全境入口",
+                tierCategory: "第2级：四大主题类目",
+                tierCatalog: "第3级：海量目录大页",
+                tierDetail: "第4级：深度规格参数",
+                btnLiveChat: "在线客服 (24/7)",
+                heroBadge: "粉色浪漫与魅惑美学 · 美加全境直邮",
+                heroTitle: "唤醒极致亲密渴望",
+                heroDesc: "精选符合FDA标准的0.01极限超薄避孕套、有机玻尿酸润滑液、医疗级硅胶女用按摩器、男用智能飞机杯及全等比例实体硅胶娃娃。100%无标识隐私包装，覆盖美国50州与加拿大全境。",
+                allCities: "全部美加仓储中心",
+                allCategories: "全部分类",
+                btnSearch: "搜索精品库",
+                catCondomTitle: "避孕套与私密护理",
+                catCondomDesc: "0.01极限超薄乳胶/非乳胶安全套、有机玻尿酸水基润滑液及浪漫抚触按摩油。",
+                catFemaleTitle: "女用玩具与按摩仪",
+                catFemaleDesc: "FDA医疗级硅胶吸吮按摩器、静音震动棒与无线APP遥控隐形跳蛋。",
+                catMaleTitle: "男用玩具与杯体",
+                catMaleDesc: "全自动免提旋转飞机杯、3D立体纹理内胆与40°C恒温加热按摩仪。",
+                catDollTitle: "实体娃娃与高仿真伴侣",
+                catDollDesc: "1:1等比例铂金医疗级硅胶/TPE实体娃娃，合金关节可动骨架与真人肌肤触感。",
+                lvl2Title: "第2级：选择核心品类",
+                lvl2Sub: "浏览北美四大亲密健康与生活美学板块。",
+                btnViewAll: "查看200万件全量商品",
+                lvl3Title: "第3级：商品目录列表",
+                lvl3Sub: "已列出美加仓储实时真实库存",
+                discreetBadge: "100% 隐私无痕包装保证",
+                itemCardTag: "魅惑粉调",
+                btnViewSpecs: "查看详情",
+                btnBackList: "返回第3级目录列表",
+                techSpecsHeader: "技术规格与材质认证",
+                matLabel: "材质认证标准：",
+                matValue: "医用级抗过敏硅胶 / 有机可食用级 / 铂金级TPE",
+                waterproofLabel: "防水等级：",
+                waterproofValue: "IPX7 级深度防水清洗",
+                chargeLabel: "充电与动力：",
+                chargeValue: "磁吸USB快充 / 超静音双电机震动",
+                hubLabel: "发货仓库：",
+                liveChatBannerTitle: "隐私下单与实时库存查询",
+                liveChatBannerDesc: "点击下方按钮开启 Tawk.to 一对一加密客服对话，快速查询库存或协助无痕保密下单。",
+                btnConnectAgent: "连接在线人工客服",
+                footerAgentText: "保密咨询与个性化订制：",
+                footerLinkChat: "即时连接人工客服",
+                pagePrev: "上一页",
+                pageNext: "下一页"
+            }
+        };
+
+        // --- GLOBAL STATE ---
+        let currentLang = 'en';
+        let currentTier = 2;
+        let currentPage = 1;
+        const pageSize = 200;
+        let currentRotationIndex = 0;
+        let countdownTimer = 10;
+        let timerInterval = null;
+
+        const northAmericaHubs = [
+            "USA - New York Fulfillment Hub", 
+            "USA - Los Angeles Logistics Center", 
+            "Canada - Toronto Warehouse", 
+            "Canada - Vancouver Hub", 
+            "USA - Chicago Central Hub", 
+            "Canada - Montreal Distribution Hub", 
+            "USA - Dallas Regional Hub", 
+            "USA - Miami Express Center"
+        ];
+
+        const categoryKeys = [
+            "Condoms & Intimate Wellness", 
+            "Female Toys & Massage Wands", 
+            "Male Performance & Strokers", 
+            "Silicone & TPE Companion Dolls"
+        ];
+
+        // --- CURATED REAL PRODUCT & LIFESTYLE PHOTOGRAPHY (UNSPLASH REAL IMAGES) ---
+        const photoLibraries = {
+            "Condoms & Intimate Wellness": [
+                // Sleek condom foils, lubricant bottles, rose petals, satin sheets
+                "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae", // Medical/wellness sleek packaging
+                "https://images.unsplash.com/photo-1608248597560-84227918f0cb", // Cosmetic / lubricant glass bottle with rose tones
+                "https://images.unsplash.com/photo-1518895949257-7621c3c786d7", // Rose petals romantic red pink
+                "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e", // Pink cosmetics & wellness
+                "https://images.unsplash.com/photo-1556228720-195a672e8a03", // Clean sleek luxury skincare/gel
+                "https://images.unsplash.com/photo-1512290900673-3e0e7a4f910a", // Pink aesthetic satin ribbon & flowers
+                "https://images.unsplash.com/photo-1608248597560-84227918f0cb"  // Organic drop oil bottle
+            ],
+            "Female Toys & Massage Wands": [
+                // Sleek modern pink devices, wellness massagers, luxury pink lighting
+                "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937", // Elegant pink velvet ambient massager
+                "https://images.unsplash.com/photo-1576426863848-c21f53c60b19", // Smooth sleek curves pink background
+                "https://images.unsplash.com/photo-1522337240901-842723a65728", // Rose quartz massager wand style
+                "https://images.unsplash.com/photo-1583947215259-38e31be8751f", // Minimalist pink device aesthetic
+                "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed", // Pink silk ambient mood
+                "https://images.unsplash.com/photo-1512290900673-3e0e7a4f910a"  // Pastel pink smooth aesthetic
+            ],
+            "Male Performance & Strokers": [
+                // Minimalist tech, sleek dark pink illuminated devices, geometric ergonomics
+                "https://images.unsplash.com/photo-1550009158-9ebf69173e03", // Futuristic sleek device lighting
+                "https://images.unsplash.com/photo-1518770660439-4636190af475", // Tech ergonomics maroon pink
+                "https://images.unsplash.com/photo-1542751371-adc38448a05e", // Modern aesthetic pink neon tech
+                "https://images.unsplash.com/photo-1526738549149-8e07eca6c147", // Sleek dark gadget with pink rim
+                "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa"  // Ergonomic device matte texture
+            ],
+            "Silicone & TPE Companion Dolls": [
+                // High-fashion mannequins, pink ambient aesthetic portrait photography
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb", // High aesthetic portrait warm pink lights
+                "https://images.unsplash.com/photo-1517841905240-472988babdf9", // Elegance model pink background
+                "https://images.unsplash.com/photo-1494790108377-be9c29b29330", // Lifelike portrait lighting
+                "https://images.unsplash.com/photo-1524504388940-b1c1722653e1", // Glamour fashion style
+                "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453"  // Soft pink ambient portrait
+            ]
+        };
+
+        const categoryTitlesMap = {
+            "Condoms & Intimate Wellness": {
+                en: ["Ultra-Thin Latex Condoms (0.01)", "Organic Water-Based Hyaluronic Lubricant", "Romantic Rose Massage Oil", "Climax Delay Care Wipes Pack", "Ultra-Smooth Non-Latex Condoms"],
+                fr: ["Préservatifs Ultra-Fins (0.01)", "Lubrifiant Bio à l'Acide Hyaluronique", "Huile de Massage Romantique à la Rose", "Lingettes Retardatrices Climax", "Préservatifs Ultra-Doux Sans Latex"],
+                zh: ["0.01极限超薄无感避孕套", "有机水基玻尿酸私密润滑液", "浪漫玫瑰抚触舒缓按摩油", "长效延时护理湿巾套装", "柔滑非乳胶隐形安全套"]
+            },
+            "Female Toys & Massage Wands": {
+                en: ["Luxury Rose Clitoral Suction Massager", "Velvet Whisper Waterproof Wand", "App-Remote Dual Pulse Egg", "Sonic Pulsation Sensual Massager", "Silicone G-Spot Contour Device"],
+                fr: ["Masseur Clitoridien Rose Luxe", "Baguette Silencieuse Velvet", "Œuf Vibrant Télécommandé Double Pouls", "Masseur Sensuel à Pulsation Sonique", "Appareil Ergonomique Point-G"],
+                zh: ["奢华玫瑰吸吮脉冲按摩器", "丝绒静音防水全感官震动棒", "智能APP双频遥控隐形跳蛋", "声波脉冲极致触感仪", "人体工学硅胶G点深层按摩仪"]
+            },
+            "Male Performance & Strokers": {
+                en: ["Automatic Hands-Free Rotating Stroker", "Interactive 3D Textured Inner Cup", "40°C Thermal Warming Massage Device", "Pro Vortex Vacuum Masturbator", "Ergonomic Power Grip Stroker"],
+                fr: ["Masseur Automatique Mains Libres", "Manchon Interactif Texturé 3D", "Dispositif Chauffant Thermique 40°C", "Masturbateur Vortex Pro", "Manchon Ergonomique Power Grip"],
+                zh: ["全自动免提旋转夹吸飞机杯", "3D立体通道感官包裹杯", "40°C智能恒温加热按摩仪", "旋涡负压真空感官杯", "人体工学强劲动力紧致杯"]
+            },
+            "Silicone & TPE Companion Dolls": {
+                en: ["Articulated Alloy Lifelike Silicone Doll", "Full-Size TPE Companion VIP", "Platinum Medical Silicone Companion", "Realistic Soft-Touch Petite Doll", "Luxury Articulated Glamour Companion"],
+                fr: ["Poupée en Silicone Articulée", "Poupée de Compagnie TPE VIP", "Poupée Silicone Médical Platine", "Poupée de Compagnie Petite Réaliste", "Poupée de Luxe Articulée"],
+                zh: ["合金骨架1:1等比例仿真硅胶娃娃", "VIP全等比例TPE高柔感实体娃娃", "医疗级铂金硅胶全实体伴侣", "娇小精致等比例真肌感娃娃", "奢华全可动合金关节伴侣"]
+            }
+        };
+
+        // --- NON-REPEATING REAL IMAGE URL GENERATOR ---
+        function getRealProductImage(index, category) {
+            const list = photoLibraries[category] || photoLibraries["Condoms & Intimate Wellness"];
+            const baseUrl = list[index % list.length];
+            // Unique signature query parameter guarantees browser treats each image uniquely while retaining cached high-res base
+            const uniqueSig = (index * 7919 + 104729) % 999999;
+            return `${baseUrl}?auto=format&fit=crop&w=800&q=80&sig=${uniqueSig}`;
+        }
+
+        // Inline SVG Fallback in case of network issues
+        const pinkFallbackSVG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><rect width='100%' height='100%' fill='%23fff1f2'/><circle cx='400' cy='300' r='180' fill='%23f43f5e' opacity='0.15'/><text x='50%' y='50%' font-family='sans-serif' font-weight='bold' font-size='28' fill='%23be123c' text-anchor='middle' dy='.3em'>Eros Glamour Boutique</text></svg>";
+
+        // --- VIRTUAL CATALOG DATA GENERATOR ---
+        window.getTotalCount = () => 2000000;
+
+        window.getPropertyByIndex = function(i) {
+            const hub = northAmericaHubs[i % northAmericaHubs.length];
+            const category = categoryKeys[i % categoryKeys.length];
+            const titleList = categoryTitlesMap[category][currentLang] || categoryTitlesMap[category]['en'];
+            const titleName = titleList[i % titleList.length];
+            const price = 28 + (i * 19) % 2950;
+            const rating = parseFloat((4.84 + (i % 16) * 0.01).toFixed(2));
+
+            return {
+                id: i + 1,
+                title: `${titleName} #${i + 1}`,
+                city: hub,
+                price: price,
+                rating: rating > 5.0 ? 4.99 : rating,
+                image: getRealProductImage(i, category),
+                category: category,
+                sku: `EG-NA-${100000 + i}`
+            };
+        };
+
+        // --- LANGUAGE CONTROLLER ---
+        function setLanguage(lang) {
+            currentLang = lang;
+            ['en', 'fr', 'zh'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.className = "px-2 py-1 rounded-lg transition bg-rose-600 text-white shadow-sm font-extrabold";
+                    } else {
+                        btn.className = "px-2 py-1 rounded-lg transition text-rose-700 hover:bg-rose-50 font-bold";
+                    }
+                }
+            });
+
+            // Update Header & Hero texts
+            const txt = i18n[lang];
+            document.getElementById('nav-subtitle').textContent = txt.navSubtitle;
+            document.getElementById('ticker-label').textContent = txt.tickerLabel;
+            document.getElementById('btn-live-chat').textContent = txt.btnLiveChat;
+            document.getElementById('hero-badge').textContent = txt.heroBadge;
+            document.getElementById('hero-title').textContent = txt.heroTitle;
+            document.getElementById('hero-desc').textContent = txt.heroDesc;
+            document.getElementById('btn-search').textContent = txt.btnSearch;
+            document.getElementById('footer-agent-text').textContent = txt.footerAgentText;
+            document.getElementById('footer-link-chat').textContent = txt.footerLinkChat;
+
+            populateDropdowns();
+
+            // Re-render active Tier page
+            if (currentTier === 2) renderLevel2Categories();
+            else if (currentTier === 3) renderLevel3Catalog();
+            else if (currentTier === 4) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const itemId = urlParams.get('item');
+                renderLevel4DetailPage(itemId ? parseInt(itemId) : 1);
+            }
+        }
+
+        function populateDropdowns() {
+            const catSelect = document.getElementById('filter-type');
+            const citySelect = document.getElementById('filter-city');
+            const txt = i18n[currentLang];
+
+            if (catSelect) {
+                const curVal = catSelect.value;
+                catSelect.innerHTML = `<option value="">${txt.allCategories}</option>`;
+                categoryKeys.forEach(cat => {
+                    let name = cat;
+                    if (cat === "Condoms & Intimate Wellness") name = txt.catCondomTitle;
+                    if (cat === "Female Toys & Massage Wands") name = txt.catFemaleTitle;
+                    if (cat === "Male Performance & Strokers") name = txt.catMaleTitle;
+                    if (cat === "Silicone & TPE Companion Dolls") name = txt.catDollTitle;
+                    catSelect.innerHTML += `<option value="${cat}">${name}</option>`;
+                });
+                catSelect.value = curVal;
+            }
+
+            if (citySelect && citySelect.options.length <= 1) {
+                citySelect.innerHTML = `<option value="">${txt.allCities}</option>`;
+                northAmericaHubs.forEach(hub => {
+                    citySelect.innerHTML += `<option value="${hub}">${hub}</option>`;
+                });
+            }
+        }
+
+        function updateTierBadge(tierNumber, text) {
+            currentTier = tierNumber;
+            const el = document.getElementById('tier-indicator');
+            if (el) el.textContent = text;
+        }
+
+        function goToTier(tier) {
+            const hero = document.getElementById('hero-section');
+            if (hero) hero.style.display = 'block';
+
+            if (tier === 1 || tier === 2) {
+                renderLevel2Categories();
+            } else {
+                renderLevel3Catalog();
+            }
+        }
+
+        // ==================== TIER 2: CATEGORY HUB ====================
+        function renderLevel2Categories() {
+            updateTierBadge(2, i18n[currentLang].tierCategory);
+            const txt = i18n[currentLang];
+            const main = document.getElementById('main-content-area');
+
+            const categories = [
+                { key: "Condoms & Intimate Wellness", title: txt.catCondomTitle, desc: txt.catCondomDesc, icon: "fa-droplet", index: 0 },
+                { key: "Female Toys & Massage Wands", title: txt.catFemaleTitle, desc: txt.catFemaleDesc, icon: "fa-wand-magic-sparkles", index: 1 },
+                { key: "Male Performance & Strokers", title: txt.catMaleTitle, desc: txt.catMaleDesc, icon: "fa-bolt", index: 2 },
+                { key: "Silicone & TPE Companion Dolls", title: txt.catDollTitle, desc: txt.catDollDesc, icon: "fa-person-dress", index: 3 }
+            ];
+
+            main.innerHTML = `
+                <div class="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-rose-200/80 pb-5">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-rose-950 tracking-tight">${txt.lvl2Title}</h2>
+                        <p class="text-xs sm:text-sm text-rose-700/80 mt-1">${txt.lvl2Sub}</p>
+                    </div>
+                    <button onclick="renderLevel3Catalog()" class="text-xs bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-extrabold px-5 py-2.5 rounded-xl shadow-md transition flex items-center">
+                        ${txt.btnViewAll} <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    ${categories.map(c => `
+                        <div onclick="selectCategory('${c.key}')" class="bg-white rounded-3xl p-5 border border-rose-100 shadow-sm pink-card-hover cursor-pointer flex flex-col justify-between group">
+                            <div>
+                                <div class="h-52 rounded-2xl overflow-hidden mb-4 relative shadow-inner bg-gray-100">
+                                    <img src="${getRealProductImage(c.index, c.key)}" 
+                                         onerror="this.onerror=null;this.src='${pinkFallbackSVG}'" 
+                                         alt="${c.title}" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-rose-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow-sm">
+                                        Verified Sector
+                                    </span>
+                                </div>
+                                <h3 class="text-base font-black text-gray-900 group-hover:text-rose-600 transition flex items-center">
+                                    <i class="fa-solid ${c.icon} text-rose-500 mr-2 text-sm"></i> ${c.title}
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-2 leading-relaxed">${c.desc}</p>
+                            </div>
+                            <div class="mt-6 pt-3 border-t border-rose-50 flex justify-between items-center text-xs font-extrabold text-rose-600">
+                                <span>Browse Level-3 Catalog</span>
+                                <i class="fa-solid fa-chevron-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function selectCategory(catKey) {
+            const select = document.getElementById('filter-type');
+            if (select) select.value = catKey;
+            renderLevel3Catalog();
+        }
+
+        // ==================== TIER 3: PAGINATED CATALOG ====================
+        function renderLevel3Catalog() {
+            updateTierBadge(3, i18n[currentLang].tierCatalog);
+            const txt = i18n[currentLang];
+            const selectedCity = document.getElementById('filter-city') ? document.getElementById('filter-city').value : '';
+            const selectedType = document.getElementById('filter-type') ? document.getElementById('filter-type').value : '';
+
+            const totalCount = window.getTotalCount();
+            const currentList = [];
+            
+            const startIndex = (currentPage - 1) * pageSize;
+            let checkIndex = startIndex;
+
+            while (currentList.length < pageSize && checkIndex < totalCount) {
+                const p = window.getPropertyByIndex(checkIndex);
+                const matchCity = !selectedCity || p.city === selectedCity;
+                const matchType = !selectedType || p.category === selectedType;
+
+                if (matchCity && matchType) {
+                    currentList.push(p);
+                }
+                checkIndex++;
+            }
+
+            const totalPages = Math.ceil(totalCount / pageSize);
+            const main = document.getElementById('main-content-area');
+
+            main.innerHTML = `
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3 border-b border-rose-200/80 pb-4">
+                    <div>
+                        <h2 class="text-2xl font-black text-rose-950 tracking-tight">${txt.lvl3Title}</h2>
+                        <p class="text-xs text-rose-700/80 mt-0.5">${txt.lvl3Sub} (<span class="font-extrabold text-rose-600">${totalCount.toLocaleString()}</span> items · Page <span class="font-extrabold text-rose-600">${currentPage}</span> of ${totalPages.toLocaleString()})</p>
+                    </div>
+                    <div class="text-xs text-rose-800 bg-rose-100/80 border border-rose-200/90 px-3.5 py-1.5 rounded-xl font-extrabold shadow-sm flex items-center">
+                        <i class="fa-solid fa-shield-halved text-rose-600 mr-2"></i> ${txt.discreetBadge}
+                    </div>
+                </div>
+
+                <!-- Product Grid (Real photography with non-repeating seeds) -->
+                <div id="properties-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    ${currentList.map(p => `
+                        <div onclick="openLevel4Page(${p.id})" class="bg-white rounded-3xl overflow-hidden border border-rose-100/80 shadow-sm pink-card-hover cursor-pointer group flex flex-col justify-between">
+                            <div>
+                                <div class="relative h-60 overflow-hidden bg-gray-100">
+                                    <img src="${p.image}" 
+                                         onerror="this.onerror=null;this.src='${pinkFallbackSVG}'" 
+                                         alt="${p.title}" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-gray-900 text-[10px] font-extrabold px-2.5 py-1 rounded-full shadow-sm">${txt.itemCardTag}</span>
+                                    <span class="absolute top-3 right-3 bg-rose-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow-sm">★ ${p.rating}</span>
+                                </div>
+                                <div class="p-4.5">
+                                    <div class="text-[10px] font-extrabold text-rose-500 mb-1 uppercase tracking-wider">${p.category}</div>
+                                    <h3 class="font-extrabold text-gray-900 line-clamp-1 text-sm group-hover:text-rose-600 transition">${p.title}</h3>
+                                    <div class="text-[11px] text-gray-400 mt-1 flex items-center">
+                                        <i class="fa-solid fa-truck-ramp-box mr-1 text-rose-400"></i> ${p.city}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4.5 pt-0">
+                                <div class="flex items-center justify-between pt-3 border-t border-rose-50">
+                                    <div>
+                                        <span class="text-xl font-black text-rose-600">$${p.price}</span>
+                                        <span class="text-[10px] text-gray-400 font-bold"> USD/CAD</span>
+                                    </div>
+                                    <span class="text-xs bg-rose-50 text-rose-700 group-hover:bg-rose-600 group-hover:text-white px-3 py-1.5 rounded-xl font-extrabold transition">
+                                        ${txt.btnViewSpecs} <i class="fa-solid fa-chevron-right ml-0.5 text-[10px]"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <!-- Pagination Bar -->
+                <div id="pagination-container" class="flex flex-wrap justify-center items-center gap-1.5 mt-10"></div>
+            `;
+
+            renderPaginationControls(totalPages);
+        }
+
+        // ==================== TIER 4: DEEP PRODUCT SPECIFICATION ====================
+        function openLevel4Page(id) {
+            const newUrl = `${window.location.pathname}?page=${currentPage}&item=${id}`;
+            window.history.pushState({path: newUrl}, '', newUrl);
+            renderLevel4DetailPage(id);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderLevel4DetailPage(id) {
+            updateTierBadge(4, i18n[currentLang].tierDetail);
+            const txt = i18n[currentLang];
+            const p = window.getPropertyByIndex(id - 1);
+            if (!p) return;
+
+            const hero = document.getElementById('hero-section');
+            if (hero) hero.style.display = 'none';
+
+            const main = document.getElementById('main-content-area');
+            main.innerHTML = `
+                <div class="mb-6 flex items-center justify-between">
+                    <button onclick="renderLevel3Catalog()" class="inline-flex items-center text-xs font-extrabold bg-white border border-rose-200 px-4 py-2.5 rounded-xl text-gray-700 hover:bg-rose-50 shadow-sm transition">
+                        <i class="fa-solid fa-arrow-left mr-2 text-rose-500"></i> ${txt.btnBackList}
+                    </button>
+                    <span class="text-xs font-mono font-bold text-rose-400">SKU: ${p.sku}</span>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-6 sm:p-10 border border-rose-100 shadow-xl grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    
+                    <!-- Left Column: Real Photography & Assurance Badges -->
+                    <div class="space-y-4">
+                        <div class="relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-md bg-gray-100">
+                            <img src="${p.image}" 
+                                 onerror="this.onerror=null;this.src='${pinkFallbackSVG}'" 
+                                 alt="${p.title}" 
+                                 class="w-full h-full object-cover">
+                            <span class="absolute top-4 left-4 bg-gradient-to-r from-rose-500 to-pink-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
+                                ★ ${p.rating} / 5.0 Rating
+                            </span>
+                        </div>
+                        
+                        <div class="grid grid-cols-3 gap-3 text-center">
+                            <div class="bg-rose-50/60 p-3.5 rounded-2xl border border-rose-100">
+                                <i class="fa-solid fa-box-open text-rose-500 mb-1 text-base"></i>
+                                <div class="text-[11px] font-extrabold text-gray-800">100% Plain Box</div>
+                            </div>
+                            <div class="bg-rose-50/60 p-3.5 rounded-2xl border border-rose-100">
+                                <i class="fa-solid fa-truck-fast text-rose-500 mb-1 text-base"></i>
+                                <div class="text-[11px] font-extrabold text-gray-800">Express Delivery</div>
+                            </div>
+                            <div class="bg-rose-50/60 p-3.5 rounded-2xl border border-rose-100">
+                                <i class="fa-solid fa-shield-heart text-rose-500 mb-1 text-base"></i>
+                                <div class="text-[11px] font-extrabold text-gray-800">FDA Medical Grade</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Full Specifications & Live Support CTAs -->
+                    <div class="flex flex-col justify-between space-y-6">
+                        <div>
+                            <span class="inline-block bg-rose-100 text-rose-700 text-xs font-extrabold px-3 py-1 rounded-full mb-3">
+                                ${p.category} · Tier 4 Full Spec
+                            </span>
+                            
+                            <h1 class="text-2xl sm:text-3xl font-black text-gray-900 mb-3 tracking-tight">${p.title}</h1>
+                            
+                            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
+                                Premium intimate item engineered with body-safe hypoallergenic materials and strict FDA compliance. Shipped in plain, unbranded boxes directly from regional fulfillment centers.
+                            </p>
+                            
+                            <!-- Detailed Spec Table -->
+                            <div class="bg-rose-50/50 border border-rose-100 rounded-2xl p-4 space-y-3 text-xs mb-6">
+                                <h4 class="font-extrabold text-rose-950 uppercase tracking-wide border-b border-rose-200/80 pb-2 mb-1 flex items-center">
+                                    <i class="fa-solid fa-microchip text-rose-500 mr-2"></i> ${txt.techSpecsHeader}
+                                </h4>
+                                <div class="flex justify-between items-center"><span class="text-gray-500 font-medium">${txt.matLabel}</span><span class="font-bold text-gray-800 text-right">${txt.matValue}</span></div>
+                                <div class="flex justify-between items-center"><span class="text-gray-500 font-medium">${txt.waterproofLabel}</span><span class="font-bold text-gray-800 text-right">${txt.waterproofValue}</span></div>
+                                <div class="flex justify-between items-center"><span class="text-gray-500 font-medium">${txt.chargeLabel}</span><span class="font-bold text-gray-800 text-right">${txt.chargeValue}</span></div>
+                                <div class="flex justify-between items-center"><span class="text-gray-500 font-medium">${txt.hubLabel}</span><span class="font-bold text-rose-600 text-right">${p.city}</span></div>
+                            </div>
+
+                            <!-- Live Chat Callout Banner -->
+                            <div class="bg-gradient-to-r from-pink-50 to-rose-50 border border-pink-200/80 p-4 rounded-2xl space-y-1.5">
+                                <h4 class="text-xs font-extrabold text-pink-900 uppercase tracking-wide flex items-center">
+                                    <i class="fa-solid fa-lock text-rose-600 mr-1.5"></i> ${txt.liveChatBannerTitle}
+                                </h4>
+                                <p class="text-xs text-rose-800 leading-relaxed">
+                                    ${txt.liveChatBannerDesc}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Pricing & CTA Action -->
+                        <div class="border-t border-rose-100 pt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div>
+                                <span class="text-3xl font-black text-rose-600">$${p.price}</span>
+                                <span class="text-xs text-gray-400 font-bold"> USD / CAD</span>
+                            </div>
+                            
+                            <button onclick="openLiveSupport()" class="w-full sm:w-auto bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 hover:from-rose-600 hover:to-pink-700 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-lg transition flex items-center justify-center text-xs sm:text-sm">
+                                <i class="fa-solid fa-comments mr-2 text-base"></i> ${txt.btnConnectAgent}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Live Chat Direct Link Opener
+        function openLiveSupport() {
+            window.open('https://tawk.to/chat/61d24aa080b2296cfdd4bcf7/1foen70rk', '_blank');
+        }
+
+        // --- PAGINATION RENDERER ---
+        function renderPaginationControls(totalPages) {
+            const container = document.getElementById('pagination-container');
+            if (!container || totalPages <= 1) { if(container) container.innerHTML = ''; return; }
+
+            const txt = i18n[currentLang];
+            let html = `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled class="opacity-40 cursor-not-allowed"' : ''} class="px-3 py-1.5 bg-white border border-rose-200 rounded-xl text-xs font-bold text-gray-700 hover:bg-rose-50 shadow-sm">${txt.pagePrev}</button>`;
+                        
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + 5);
+            if (endPage - startPage < 5) {
+                startPage = Math.max(1, endPage - 5);
+            }
+
+            if (startPage > 1) {
+                html += `<button onclick="goToPage(1)" class="px-3 py-1.5 bg-white border border-rose-200 rounded-xl text-xs font-bold hover:bg-rose-50 shadow-sm">1</button>`;
+                if (startPage > 2) html += `<span class="px-1 text-gray-400 text-xs">...</span>`;
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                html += `<button onclick="goToPage(${i})" class="px-3 py-1.5 rounded-xl text-xs font-extrabold ${currentPage === i ? 'bg-rose-600 text-white shadow-md' : 'bg-white border border-rose-200 text-gray-700 hover:bg-rose-50 shadow-sm'}">${i}</button>`;
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) html += `<span class="px-1 text-gray-400 text-xs">...</span>`;
+                html += `<button onclick="goToPage(${totalPages})" class="px-3 py-1.5 bg-white border border-rose-200 rounded-xl text-xs font-bold hover:bg-rose-50 shadow-sm">${totalPages.toLocaleString()}</button>`;
+            }
+
+            html += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled class="opacity-40 cursor-not-allowed"' : ''} class="px-3 py-1.5 bg-white border border-rose-200 rounded-xl text-xs font-bold text-gray-700 hover:bg-rose-50 shadow-sm">${txt.pageNext}</button>`;
+            container.innerHTML = html;
+        }
+
+        function changePage(page) {
+            const totalPages = Math.ceil(window.getTotalCount() / pageSize);
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderLevel3Catalog();
+            window.scrollTo({ top: 380, behavior: 'smooth' });
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderLevel3Catalog();
+            window.scrollTo({ top: 380, behavior: 'smooth' });
+        }
+
+        function applyFilters() {
+            currentPage = 1;
+            renderLevel3Catalog();
+        }
+
+        // --- ROTATION TICKER ENGINE ---
+        function startRotationEngine() {
+            if (timerInterval) clearInterval(timerInterval);
+            updateTickerContent();
+            countdownTimer = 10;
+
+            timerInterval = setInterval(() => {
+                countdownTimer--;
+                const countdownEl = document.getElementById('ticker-countdown');
+                if (countdownEl) countdownEl.textContent = countdownTimer + 's';
+                if (countdownTimer <= 0) {
+                    currentRotationIndex = (currentRotationIndex + 1) % 100;
+                    updateTickerContent();
+                    countdownTimer = 10;
+                }
+            }, 1000);
+        }
+
+        function updateTickerContent() {
+            const currentItem = window.getPropertyByIndex(currentRotationIndex);
+            const tickerCity = document.getElementById('ticker-city');
+            if (tickerCity) tickerCity.textContent = `${currentItem.city} - SKU #${currentItem.id}`;
+        }
+
+        // Initialize application on load
+        window.onload = function() {
+            populateDropdowns();
+            setLanguage('en');
+            startRotationEngine();
+        };
+    </script>
+</body>
+</html>
