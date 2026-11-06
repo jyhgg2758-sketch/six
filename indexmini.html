@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student housing Montreal 蒙特利尔租房网 | Palay Student Apartments.Arrivée à Montréal : Aide au logement et installation pour étudiants français-Logement Côte-des-Neiges UdeM （蒙大区住房）Studio centre-ville UQAM （UQAM市中心单间）Appartement proche métro （近地铁公寓）« Comment se loger à Montréal en arrivant de France sans historique de crédit ?student housing Montreal, study in Montreal, international student welcome, logement étudiant Montréal, venir étudier à Montréal</title>
+    <meta name="• logement etudiant montreal• logement montreal pas cher• studio centre ville montreal• chambre a louer montreal• colocation montreal / coloc montreal
+• comment se loger a montreal sans historique de credit• chambre meublee tout inclus montreal• appartement proche metro montreal
+• logement cote des neiges udem• pvt canada logement montreal• cession de bail montreal etudiantkeywords" content="student housing Montreal, study in Montreal, international student welcome, logement étudiant Montréal, venir étudier à Montréal">
+    <meta name="description" content="Montreal Student housing near McGill University, Concordia University, and UQAM. Fully furnished student apartments located downtown MontrealThe premier student housing choice in Montreal. Discover our 2,000,000 rooms and apartments spread across 10,000 pages.“T1, T2, T3”或者“Studio, 2 pièces”Chambre meublée tout inclus： Colocation Montréal / Coloc Montréal• Cession de bail / Sous-location：• Louer sans historique de crédit Montréal：• Garant / Cosignataire
+• Plateau-Mont-Royal：• Mile End• Côte-des-Neiges：• Proche métro：• TAL (Tribunal administratif du logement)：• Hydro-Québec• PVT Canada / PVT Montréal• Étudiants français Montréal• Maudits Français：">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-header border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="goToHome()">
+                <div class="bg-rose-600 text-white p-2.5 rounded-2xl shadow-md">
+                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-tight bg-gradient-to-r from-rose-600 to-indigo-600 bg-clip-text text-transparent">MTL-StudentStay</span>
+                    <span class="block text-xs font-medium text-gray-500">Student's First Choice · 2M Rooms</span>
+                </div>
+            </div>
+                        
+            <div class="hidden md:flex items-center space-x-2 bg-rose-50 border border-rose-100 px-4 py-2 rounded-full text-xs font-semibold text-rose-600 shadow-inner">
+                <span class="w-2 h-2 rounded-full bg-rose-600 animate-ping"></span>
+                <span>Featured: <span id="ticker-city" class="underline">Loading...</span></span>
+                <span id="ticker-countdown" class="bg-rose-600 text-white px-2 py-0.5 rounded-full text-[10px]">10s</span>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <span class="text-xs bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg font-bold border border-indigo-100">🇫🇷 / 🇬🇧 Montreal</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dynamic Content Area -->
+    <div id="app-container">
+        <!-- Hero Section -->
+        <section id="hero-section" class="relative bg-gray-900 text-white py-24 overflow-hidden">
+            <div class="absolute inset-0 opacity-45">
+                <img id="hero-bg-img" src="http://rent.quebec-quebec.net/3.jpg" alt="Montreal Student Housing" class="w-full h-full object-cover transition-all duration-1000">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span id="hero-badge" class="inline-block bg-rose-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-lg">The Premier Student Housing Choice in Montreal</span>
+                <h1 id="hero-title" class="text-4xl sm:text-6xl font-black tracking-tight mb-4 drop-shadow-lg">Succeed in Your Montreal Relocation</h1>
+                <p id="hero-desc" class="max-w-2xl mx-auto text-lg text-gray-200 mb-8 font-light">Specially designed for welcoming new students and rentals in Montreal. 2,000,000 rooms spread across 10,000 pages.</p>
+                            
+                <!-- Search Bar -->
+                <div class="max-w-4xl mx-auto bg-white p-3 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-3 text-gray-800">
+                    <div class="flex-1 flex items-center px-4 py-3 bg-gray-50 rounded-xl border border-gray-100">
+                        <i class="fa-solid fa-location-dot text-rose-600 mr-3"></i>
+                        <select id="filter-city" onchange="filterProperties()" class="w-full bg-transparent outline-none text-sm font-semibold cursor-pointer">
+                            <option value="">All Montreal Neighborhoods</option>
+                        </select>
+                    </div>
+                    <div class="flex-1 flex items-center px-4 py-3 bg-gray-50 rounded-xl border border-gray-100">
+                        <i class="fa-solid fa-home text-rose-600 mr-3"></i>
+                        <select id="filter-type" onchange="filterProperties()" class="w-full bg-transparent outline-none text-sm font-semibold cursor-pointer">
+                            <option value="">All Property Types</option>
+                            <option value="Entire Apartment">Entire Apartment / Short-Term</option>
+                            <option value="Entire House">Entire House / Colocation</option>
+                            <option value="Entire Villa">Luxury Student Residence</option>
+                            <option value="Private Room">Private Room</option>
+                        </select>
+                    </div>
+                    <button onclick="filterProperties()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold px-8 py-3 rounded-xl transition flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-magnifying-glass mr-2"></i> Search
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rooms List -->
+        <main id="main-content-area" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold tracking-tight">Rooms & Student Housing in Montreal</h2>
+                    <p class="text-sm text-gray-500"><span id="property-count" class="font-semibold text-rose-600">2000000</span> rooms available (200 per page, total <span id="total-pages-label" class="font-semibold text-rose-600">10000</span> pages)</p>
+                </div>
+                <div class="text-sm text-gray-500">
+                    Status: <span class="text-emerald-600 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i>Montreal 100% Exclusive (2M Edition)</span>
+                </div>
+            </div>
+
+            <!-- Properties Grid -->
+            <div id="properties-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+
+            <!-- Pagination -->
+            <div id="pagination-container" class="flex flex-wrap justify-center items-center gap-1.5 mt-12"></div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs space-y-3">
+            <p>© 2026 The Premier Student Housing Choice in Montreal. 2M Rooms / 10000 Pages Edition.</p>
+            <p class="text-gray-500">Keywords: student housing Montreal | study in Montreal | international student welcome | logement étudiant Montréal</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Script -->
+    <script>
+        (function generate2000000MontrealRooms() {
+            const montrealDistricts = [
+                "Montreal - Plateau-Mont-Royal (Cultural & Student Hub)", 
+                "Montreal - Downtown / McGill (Business & Universities)", 
+                "Montreal - Concordia / Guy-Concordia (Near Metro & Campus)", 
+                "Montreal - Côte-des-Neiges (UdeM University District)", 
+                "Montreal - Old Montreal (Historic & Trendy Charm)", 
+                "Montreal - Mile End (Artistic District & Cafes)", 
+                "Montreal - Griffintown (Modern Canal-side Apartments)", 
+                "Montreal - Verdun (Affordable & Metro-accessible)",
+                "Montreal - Rosemont / La Petite-Patrie (Authentic Neighborhood)",
+                "Montreal - Notre-Dame-de-Grâce / NDG (Quiet Residential Area)"
+            ];
+            const types = ["Entire Apartment", "Entire House", "Entire Villa", "Private Room"];
+                        
+            const customImages = [
+                "http://rent.quebec-quebec.net/3.jpg",
+                "http://rent.quebec-quebec.net/5.jpg",
+                "http://rent.quebec-quebec.net/6.jpg",
+                "http://rent.quebec-quebec.net/7.jpg",
+                "http://rent.quebec-quebec.net/8.jpg",
+                "http://rent.quebec-quebec.net/9.jpg",
+                "http://rent.quebec-quebec.net/12.jpg",
+                "http://rent.quebec-quebec.net/14.jpg"
+            ];
+                        
+            const titlesFr = ["Student Housing & Short-Term Montreal", "Modern Student Residence", "Apartment Near Montreal Campus", "Spacious Room / Short-Term Stay", "Fully Equipped Studio", "Ideal Colocation / Student Welcome"];
+
+            window.getTotalCount = () => 2000000;
+            window.getPropertyByIndex = function(i) {
+                const district = montrealDistricts[i % montrealDistricts.length];
+                const propType = types[i % types.length];
+                const title = `[Montreal Housing] ${titlesFr[i % titlesFr.length]} #${i + 1}`;
+                return {
+                    id: i + 1,
+                    title: title,
+                    city: district,
+                    price: 600 + (i * 17) % 950,
+                    rating: parseFloat((4.80 + (i % 20) * 0.01).toFixed(2)),
+                    image: customImages[i % customImages.length],
+                    type: propType,
+                    guests: 1 + (i % 3),
+                    bedrooms: 1 + (i % 2),
+                    bathrooms: 1,
+                    description: `Ideal for students in Montreal. Located in ${district}. Perfect for short-term rental and welcoming new arrivals. Bilingual contract available.`,
+                    seoKeywords: `student housing Montreal, short-term rental Montreal, student welcome, logement étudiant Montréal`
+                };
+            };
+        })();
+
+        let currentPage = 1;
+        const pageSize = 200;
+        let currentRotationIndex = 0;
+        let countdownTimer = 10;
+        let timerInterval = null;
+
+        function initWebsite() {
+            initCityDropdown();
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const detailId = urlParams.get('item');
+            const pageParam = urlParams.get('page');
+
+            if (pageParam && !isNaN(pageParam)) {
+                currentPage = parseInt(pageParam);
+            }
+
+            if (detailId && !isNaN(detailId)) {
+                renderLowLevelDetailPage(parseInt(detailId));
+            } else {
+                renderPaginatedProperties();
+                startRotationEngine();
+            }
+        }
+
+        function initCityDropdown() {
+            const montrealDistricts = [
+                "Montreal - Plateau-Mont-Royal (Cultural & Student Hub)", 
+                "Montreal - Downtown / McGill (Business & Universities)", 
+                "Montreal - Concordia / Guy-Concordia (Near Metro & Campus)", 
+                "Montreal - Côte-des-Neiges (UdeM University District)", 
+                "Montreal - Old Montreal (Historic & Trendy Charm)", 
+                "Montreal - Mile End (Artistic District & Cafes)", 
+                "Montreal - Griffintown (Modern Canal-side Apartments)", 
+                "Montreal - Verdun (Affordable & Metro-accessible)",
+                "Montreal - Rosemont / La Petite-Patrie (Authentic Neighborhood)",
+                "Montreal - Notre-Dame-de-Grâce / NDG (Quiet Residential Area)"
+            ];
+            const select = document.getElementById('filter-city');
+            if(select) {
+                select.innerHTML = '<option value="">All Montreal Neighborhoods</option>';
+                montrealDistricts.forEach(city => {
+                    select.innerHTML += `<option value="${city}">${city}</option>`;
+                });
+            }
+        }
+
+        function renderPaginatedProperties() {
+            const totalCount = window.getTotalCount();
+            const totalPages = Math.ceil(totalCount / pageSize);
+            if (currentPage > totalPages) currentPage = 1;
+
+            const currentList = [];
+            const startIndex = (currentPage - 1) * pageSize;
+            const endIndex = Math.min(startIndex + pageSize, totalCount);
+
+            for (let i = startIndex; i < endIndex; i++) {
+                currentList.push(window.getPropertyByIndex(i));
+            }
+
+            const countEl = document.getElementById('property-count');
+            const totalPagesEl = document.getElementById('total-pages-label');
+            if (countEl) countEl.textContent = totalCount;
+            if (totalPagesEl) totalPagesEl.textContent = totalPages;
+
+            renderPropertiesGrid(currentList);
+            renderPaginationControls(totalPages);
+        }
+
+        function renderPropertiesGrid(list) {
+            const grid = document.getElementById('properties-grid');
+            if (!grid) return;
+            if (list.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-gray-400">No properties found in Montreal.</div>`;
+                return;
+            }
+
+            grid.innerHTML = list.map(p => `
+                <div onclick="openLowLevelPage(${p.id})" class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col">
+                    <div class="relative h-52 overflow-hidden bg-gray-100">
+                        <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-gray-900 text-xs font-bold px-2.5 py-1 rounded-full shadow">${p.city}</span>
+                        <span class="absolute top-3 right-3 bg-rose-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow">★ ${p.rating}</span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-medium text-rose-600 mb-1 uppercase tracking-wider">🇫🇷 / 🇬🇧 Montreal Housing / Student Welcome</div>
+                            <h3 class="font-bold text-gray-900 line-clamp-1 mb-2 group-hover:text-rose-600 transition">${p.title}</h3>
+                            <p class="text-xs text-gray-500 line-clamp-2 mb-4">${p.description}</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                            <div>
+                                <span class="text-lg font-black text-rose-600">$${p.price}</span>
+                                <span class="text-xs text-gray-400"> CAD/mo</span>
+                            </div>
+                            <span class="text-xs text-indigo-600 font-semibold"><i class="fa-solid fa-check-circle mr-1"></i>Montreal</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openLowLevelPage(id) {
+            const newUrl = `${window.location.pathname}?page=${currentPage}&item=${id}`;
+            window.history.pushState({path: newUrl}, '', newUrl);
+            renderLowLevelDetailPage(id);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderLowLevelDetailPage(id) {
+            const p = window.getPropertyByIndex(id - 1);
+            if (!p) return;
+
+            const heroSec = document.getElementById('hero-section');
+            if (heroSec) heroSec.style.display = 'none';
+
+            const mainArea = document.getElementById('main-content-area');
+            mainArea.innerHTML = `
+                <div class="mb-6">
+                    <button onclick="goToHome()" class="inline-flex items-center text-xs font-bold bg-white border border-gray-200 px-4 py-2 rounded-xl text-gray-700 hover:bg-gray-100 shadow-sm transition">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Back to Results / Montreal Housing
+                    </button>
+                </div>
+                <div class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-100 shadow-xl grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <div class="space-y-4">
+                        <div class="relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-md">
+                            <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover">
+                            <span class="absolute top-4 left-4 bg-rose-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">★ ${p.rating} / 5.0</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-3 text-center">
+                            <div class="bg-gray-50 p-3 rounded-xl border border-gray-100"><i class="fa-solid fa-users text-rose-600 mb-1"></i><div class="text-xs font-bold">${p.guests} Guest(s)</div></div>
+                            <div class="bg-gray-50 p-3 rounded-xl border border-gray-100"><i class="fa-solid fa-bed text-rose-600 mb-1"></i><div class="text-xs font-bold">${p.bedrooms} Bedroom(s)</div></div>
+                            <div class="bg-gray-50 p-3 rounded-xl border border-gray-100"><i class="fa-solid fa-bath text-rose-600 mb-1"></i><div class="text-xs font-bold">${p.bathrooms} Bathroom</div></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-between space-y-6">
+                        <div>
+                            <span class="inline-block bg-rose-50 text-rose-600 text-xs font-extrabold px-3 py-1 rounded-full mb-2">🇫🇷 / 🇬🇧 ${p.city}</span>
+                            <h1 class="text-3xl font-black text-gray-900 mb-4">${p.title}</h1>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6">${p.description}</p>
+                            <div class="bg-indigo-50 border border-indigo-100 p-4 rounded-2xl mb-6">
+                                <h4 class="text-xs font-bold text-indigo-900 uppercase tracking-wide mb-1"><i class="fa-solid fa-circle-info mr-1"></i> Student Information & Colocation</h4>
+                                <p class="text-xs text-indigo-700">Ideal contract for temporary immigration, students from McGill, Concordia, UdeM, and rapid arrival support.</p>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-100 pt-6 flex items-center justify-between">
+                            <div>
+                                <span class="text-3xl font-black text-rose-600">$${p.price}</span>
+                                <span class="text-xs text-gray-400"> CAD / month</span>
+                            </div>
+                            <button onclick="window.open('https://www.donlk.com/index8.html', '_blank')" class="bg-rose-600 hover:bg-rose-700 text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl transition flex items-center text-sm">
+                                <i class="fa-solid fa-key mr-2"></i> Book Now / Admission Request
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function goToHome() {
+            window.location.href = window.location.pathname;
+        }
+
+        function renderPaginationControls(totalPages) {
+            const container = document.getElementById('pagination-container');
+            if (!container) return;
+            if (totalPages <= 1) { container.innerHTML = ''; return; }
+
+            let html = `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled class="opacity-40 cursor-not-allowed"' : ''} class="px-3 py-1.5 bg-white border rounded-lg text-xs font-medium hover:bg-gray-50">Previous</button>`;
+                        
+            let startPage = Math.max(1, currentPage - 3);
+            let endPage = Math.min(totalPages, startPage + 6);
+            if (endPage - startPage < 6) {
+                startPage = Math.max(1, endPage - 6);
+            }
+
+            if (startPage > 1) {
+                html += `<button onclick="goToPage(1)" class="px-3 py-1.5 bg-white border rounded-lg text-xs font-medium hover:bg-gray-50">1</button>`;
+                if (startPage > 2) html += `<span class="px-2 text-gray-400">...</span>`;
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                html += `<button onclick="goToPage(${i})" class="px-3 py-1.5 rounded-lg text-xs font-medium ${currentPage === i ? 'bg-rose-600 text-white shadow-md' : 'bg-white border hover:bg-gray-50'}">${i}</button>`;
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) html += `<span class="px-2 text-gray-400">...</span>`;
+                html += `<button onclick="goToPage(${totalPages})" class="px-3 py-1.5 bg-white border rounded-lg text-xs font-medium hover:bg-gray-50">${totalPages}</button>`;
+            }
+
+            html += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled class="opacity-40 cursor-not-allowed"' : ''} class="px-3 py-1.5 bg-white border rounded-lg text-xs font-medium hover:bg-gray-50">Next</button>`;
+            container.innerHTML = html;
+        }
+
+        function changePage(page) {
+            const totalPages = Math.ceil(window.getTotalCount() / pageSize);
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderPaginatedProperties();
+            window.scrollTo({ top: 500, behavior: 'smooth' });
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderPaginatedProperties();
+            window.scrollTo({ top: 500, behavior: 'smooth' });
+        }
+
+        function filterProperties() {
+            currentPage = 1;
+            renderPaginatedProperties();
+        }
+
+        function startRotationEngine() {
+            if (timerInterval) clearInterval(timerInterval);
+            updateHeroContent();
+            countdownTimer = 10;
+
+            timerInterval = setInterval(() => {
+                countdownTimer--;
+                const countdownEl = document.getElementById('ticker-countdown');
+                if (countdownEl) countdownEl.textContent = countdownTimer + 's';
+                if (countdownTimer <= 0) {
+                    currentRotationIndex = (currentRotationIndex + 1) % 50;
+                    updateHeroContent();
+                    countdownTimer = 10;
+                }
+            }, 1000);
+        }
+
+        function updateHeroContent() {
+            const currentItem = window.getPropertyByIndex(currentRotationIndex);
+            const tickerCity = document.getElementById('ticker-city');
+            const heroBgImg = document.getElementById('hero-bg-img');
+            const heroBadge = document.getElementById('hero-badge');
+            const heroTitle = document.getElementById('hero-title');
+            const heroDesc = document.getElementById('hero-desc');
+
+            if (tickerCity) tickerCity.textContent = `${currentItem.city} - ${currentItem.title}`;
+            if (heroBgImg) heroBgImg.src = currentItem.image;
+            if (heroBadge) heroBadge.textContent = `The Premier Student Housing Choice in Montreal`;
+            if (heroTitle) heroTitle.textContent = currentItem.title;
+            if (heroDesc) heroDesc.textContent = currentItem.description;
+        }
+
+        window.onload = initWebsite;
+    </script>
+
+    <!-- Tawk.to Live Chat Script -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/61d24aa080b2296cfdd4bcf7/1foen70rk';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montreal Properties & Listings Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 py-12">
+        <!-- Apartment About Section -->
+        <section class="mb-12 text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 lang-en">About the Property</h2>
+            <h2 class="text-3xl font-bold mb-4 lang-fr hidden">À propos du Logement</h2>
+            
+            <p class="text-gray-600 text-lg lang-en">Located in the heart of the city, our charming apartment offers modern amenities, high-speed Wi-Fi, and a breathtaking view. Perfect for couples, business travelers, and small families.</p>
+            <p class="text-gray-600 text-lg lang-fr hidden">Situé au cœur de la ville, notre charmant appartement offre des équipements modernes, une connexion Wi-Fi haut débit et une vue imprenable. Idéal pour les couples, les voyageurs d'affaires et les petites familles.</p>
+            
+            <!-- Language Switcher Bar -->
+            <div class="mt-6 flex justify-center gap-4">
+                <button onclick="setLanguage('en')" id="btn-en" class="px-4 py-1.5 text-sm font-semibold bg-rose-500 text-white rounded-full shadow-sm transition">English</button>
+                <button onclick="setLanguage('fr')" id="btn-fr" class="px-4 py-1.5 text-sm font-semibold bg-gray-200 text-gray-700 rounded-full shadow-sm transition">Français</button>
+            </div>
+        </section>
+
+        <!-- Listings Grid Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8 text-center lang-en">Our Featured Montreal Properties (All 5 Rooms)</h2>
+            <h2 class="text-2xl font-bold mb-8 text-center lang-fr hidden">Nos Propriétés en Vedette à Montréal (5 Chambres)</h2>
+                        
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                <!-- Listing 1 -->
+                <a href="https://www.airbnb.com/h/sunnyroom-urban" target="_blank" class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group border border-gray-100">
+                    <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-52843295/original/2e17013a-932f-4791-a5aa-ab5872dd43e6.jpeg?im_w=960');">
+                        <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 text-xs font-medium rounded-lg">Listing 1</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-sm mb-2 group-hover:text-rose-600 transition-colors">CozyRoom / Walk to Metro / DT / WiFi 500M / Free Parking</h3>
+                        <p class="text-xs text-gray-500 mb-4 flex-grow">Spacious and bright room filled with natural sunlight near downtown. Includes high-speed Wi-Fi and free parking.</p>
+                        <span class="text-xs font-semibold text-rose-600 mt-auto lang-en">View on Airbnb &rarr;</span>
+                        <span class="text-xs font-semibold text-rose-600 mt-auto lang-fr hidden">Voir sur Airbnb &rarr;</span>
+                    </div>
+                </a>
+                <!-- Listing 2 -->
+                <a href="https://www.airbnb.com/h/fundes" target="_blank" class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group border border-gray-100">
+                    <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1632091531808758521/original/b252b296-f4ba-4ea7-a8a0-56302bf59dd9.jpeg?im_w=960');">
+                        <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 text-xs font-medium rounded-lg">Listing 2</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-sm mb-2 group-hover:text-rose-600 transition-colors">Fundes Exclusive Stay / Montreal Center</h3>
+                        <p class="text-xs text-gray-500 mb-4 flex-grow">Conveniently located private room offering great access to local hubs, clean facilities, and reliable connection.</p>
+                        <span class="text-xs font-semibold text-rose-600 mt-auto lang-en">View on Airbnb &rarr;</span>
+                        <span class="text-xs font-semibold text-rose-600 mt-auto lang-fr hidden">Voir sur Airbnb &rarr;</span>
+                    </div>
+                </a>
+                <!-- Listing 3 -->
+                <a href="https://www.airbnb.com/h/dtroom1" target="_blank" class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group border border-gray-100">
+                    <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1617489146411717035/original/827785a1-79bd-4fb5-b13e-bd660769f91b.jpeg?im_w=960');">
+                        <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 text-xs font-medium rounded-lg">Listing 3</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-sm mb-2 group-hover:text-rose-600 transition-colors">Downtown / Clean Private / WiFi 400M / Free Parking / Room</h3>
+                        <p class="text-xs text-gray-500 mb-4 flex-grow">Exceptionally clean private room with 1 king bed and dedicated workspace in a quiet, safe downtown neighborhood.</p>
+                        <span class="text-xs font-semibold text-rose-600 mt-auto lang-en">View on Airbnb &rarr;</span>
+                        <span class="text-xs font-semibold text-rose-600 mt-auto lang-fr hidden">Voir sur Airbnb &rarr;</span>
+                    </div>
+                </a>
+                <!-- Listing 4 -->
+                <a href="https://www.airbnb.com/h/dtroom2" target="_blank" class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group border border-gray-100">
+                    <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1657563545877539615/original/1817cd51-91a6-4ed7-a895-a47a03c7b9a4.jpeg?im_w=960');">
+                        <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 text-xs font-medium rounded-lg">Listing 4</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-sm mb-2 group-hover:text-rose-600 transition-colors">Peaceful Skyline Room 2 / DT Montreal</h3>
+                        <p class="text-xs text-gray-500 mb-4 flex-grow">Cozy vibe with prime location, easy access to transport, shopping districts, and local cafés.</p>
+                        <span class="text-xs font-semibold text-rose-600 mt-auto lang-en">View on Airbnb &rarr;</span>
+                        <span class="text-xs font-semibold text-rose-600 mt-auto lang-fr hidden">Voir sur Airbnb &rarr;</span>
+                    </div>
+                </a>
+                <!-- Listing 5 -->
+                <a href="https://www.airbnb.com/h/sunnyroom-urban" target="_blank" class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group border border-gray-100">
+                    <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1657563545877539615/original/1817cd51-91a6-4ed7-a895-a47a03c7b9a4.jpeg?im_w=960');">
+                        <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 text-xs font-medium rounded-lg">Listing 5</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="font-bold text-sm mb-2 group-hover:text-rose-600 transition-colors">Urban Sunshine Retreat / Extra Space</h3>
+                        <p class="text-xs text-gray-500 mb-4 flex-grow">Bright interior layout, excellent security features, quiet environment, perfect for your Montreal stay.</p>
+                        <span class="text-xs font-semibold text-rose-600 mt-auto lang-en">View on Airbnb &rarr;</span>
+                        <span class="text-xs font-semibold text-rose-600 mt-auto lang-fr hidden">Voir sur Airbnb &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Call To Action Button triggering the Modal -->
+        <div class="text-center pb-12">
+            <button id="openModalBtn" class="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+                <span class="lang-en">View All 5 Rooms in Popup</span>
+                <span class="lang-fr hidden">Voir les 5 Chambres en Fenêtre</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 🚨 弹窗结构：内部直接平铺 5 个房间矩阵 🚨 -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <!-- 弹窗容器（调宽为 max-w-5xl 以完美容纳多列房源） -->
+        <div id="modalContainerBox" class="bg-white w-full max-w-5xl rounded-2xl p-6 md:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+            
+            <!-- Close Button -->
+            <button id="closeModalBtn" class="absolute top-5 right-5 text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 w-9 h-9 rounded-full flex items-center justify-center font-bold text-lg transition-colors cursor-pointer z-10">
+                &times;
+            </button>
+
+            <!-- Modal Heading -->
+            <h3 class="text-2xl font-bold mb-6 text-gray-900 pr-12">
+                <span class="lang-en">Limited-Time Offer – Great Value Stay</span>
+                <span class="lang-fr hidden">Sélectionnez Votre Chambre / Nos 5 Propriétés</span>
+            </h3>
+
+            <!-- 弹窗内的 5 个房间网格展示区 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- 房源 1 -->
+                <a href="https://www.airbnb.com/h/sunnyroom-urban" target="_blank" class="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col border border-gray-200 group">
+                    <div class="h-32 bg-cover bg-center relative" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-52843295/original/2e17013a-932f-4791-a5aa-ab5872dd43e6.jpeg?im_w=960');">
+                        <span class="absolute top-2 left-2 bg-black/60 text-white px-2 py-0.5 text-[10px] font-medium rounded">Listing 1</span>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xs mb-1 group-hover:text-rose-600 transition-colors line-clamp-2">CozyRoom / Walk to Metro</h4>
+                        <span class="text-[11px] font-semibold text-rose-600 mt-auto lang-en">Airbnb &rarr;</span>
+                        <span class="text-[11px] font-semibold text-rose-600 mt-auto lang-fr hidden">Airbnb &rarr;</span>
+                    </div>
+                </a>
+                <!-- 房源 2 -->
+                <a href="https://www.airbnb.com/h/fundes" target="_blank" class="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col border border-gray-200 group">
+                    <div class="h-32 bg-cover bg-center relative" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1632091531808758521/original/b252b296-f4ba-4ea7-a8a0-56302bf59dd9.jpeg?im_w=960');">
+                        <span class="absolute top-2 left-2 bg-black/60 text-white px-2 py-0.5 text-[10px] font-medium rounded">Listing 2</span>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xs mb-1 group-hover:text-rose-600 transition-colors line-clamp-2">Fundes Exclusive Stay</h4>
+                        <span class="text-[11px] font-semibold text-rose-600 mt-auto lang-en">Airbnb &rarr;</span>
+                        <span class="text-[11px] font-semibold text-rose-600 mt-auto lang-fr hidden">Airbnb &rarr;</span>
+                    </div>
+                </a>
+                <!-- 房源 3 -->
+                <a href="https://www.airbnb.com/h/dtroom1" target="_blank" class="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col border border-gray-200 group">
+                    <div class="h-32 bg-cover bg-center relative" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1617489146411717035/original/827785a1-79bd-4fb5-b13e-bd660769f91b.jpeg?im_w=960');">
+                        <span class="absolute top-2 left-2 bg-black/60 text-white px-2 py-0.5 text-[10px] font-medium rounded">Listing 3</span>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xs mb-1 group-hover:text-rose-600 transition-colors line-clamp-2">Downtown / Clean Private</h4>
+                        <span class="text-[11px] font-semibold text-rose-600 mt-auto lang-en">Airbnb &rarr;</span>
+                        <span class="text-[11px] font-semibold text-rose-600 mt-auto lang-fr hidden">Airbnb &rarr;</span>
+                    </div>
+                </a>
+                <!-- 房源 4 -->
+                <a href="https://www.airbnb.com/h/dtroom2" target="_blank" class="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col border border-gray-200 group">
+                    <div class="h-32 bg-cover bg-center relative" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1657563545877539615/original/1817cd51-91a6-4ed7-a895-a47a03c7b9a4.jpeg?im_w=960');">
+                        <span class="absolute top-2 left-2 bg-black/60 text-white px-2 py-0.5 text-[10px] font-medium rounded">Listing 4</span>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xs mb-1 group-hover:text-rose-600 transition-colors line-clamp-2">Peaceful Skyline Room 2</h4>
+                        <span class="text-[11px] font-semibold text-rose-600 mt-auto lang-en">Airbnb &rarr;</span>
+                        <span class="text-[11px] font-semibold text-rose-600 mt-auto lang-fr hidden">Airbnb &rarr;</span>
+                    </div>
+                </a>
+                <!-- 房源 5 -->
+                <a href="https://www.airbnb.com/h/sunnyroom-urban" target="_blank" class="bg-gray-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col border border-gray-200 group">
+                    <div class="h-32 bg-cover bg-center relative" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1657563545877539615/original/1817cd51-91a6-4ed7-a895-a47a03c7b9a4.jpeg?im_w=960');">
+                        <span class="absolute top-2 left-2 bg-black/60 text-white px-2 py-0.5 text-[10px] font-medium rounded">Listing 5</span>
+                    </div>
+                    <div class="p-3 flex flex-col flex-grow">
+                        <h4 class="font-bold text-xs mb-1 group-hover:text-rose-600 transition-colors line-clamp-2">Urban Sunshine Retreat</h4>
+                        <span class="text-[11px] font-semibold text-rose-600 mt-auto lang-en">Airbnb &rarr;</span>
+                        <span class="text-[11px] font-semibold text-rose-600 mt-auto lang-fr hidden">Airbnb &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ⚙️ 统一控制脚本（页面打开后自动弹窗展示这 5 个房间） -->
+    <script>
+        const modal = document.getElementById('bookingModal');
+        const modalBox = document.getElementById('modalContainerBox');
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        function openModal() {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100', 'pointer-events-auto');
+            modalBox.classList.remove('scale-95');
+            modalBox.classList.add('scale-100');
+        }
+
+        function closeModal() {
+            modal.classList.remove('opacity-100', 'pointer-events-auto');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-95');
+        }
+
+        // 绑定点击事件
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+
+        // 点击弹窗外部灰色区域关闭
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // 语言切换功能
+        function setLanguage(lang) {
+            const enElements = document.querySelectorAll('.lang-en');
+            const frElements = document.querySelectorAll('.lang-fr');
+            const btnEn = document.getElementById('btn-en');
+            const btnFr = document.getElementById('btn-fr');
+
+            if (lang === 'en') {
+                enElements.forEach(el => el.classList.remove('hidden'));
+                frElements.forEach(el => el.classList.add('hidden'));
+                btnEn.className = "px-4 py-1.5 text-sm font-semibold bg-rose-500 text-white rounded-full shadow-sm transition";
+                btnFr.className = "px-4 py-1.5 text-sm font-semibold bg-gray-200 text-gray-700 rounded-full shadow-sm transition";
+            } else {
+                frElements.forEach(el => el.classList.remove('hidden'));
+                enElements.forEach(el => el.classList.add('hidden'));
+                btnFr.className = "px-4 py-1.5 text-sm font-semibold bg-rose-500 text-white rounded-full shadow-sm transition";
+                btnEn.className = "px-4 py-1.5 text-sm font-semibold bg-gray-200 text-gray-700 rounded-full shadow-sm transition";
+            }
+        }
+
+        // 🚀 **页面打开后 0.3 秒自动弹出包含这 5 个房间的窗口**
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                openModal();
+            }, 300);
+        });
+    </script>
+</body>
+</html>
+
