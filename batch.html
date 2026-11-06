@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 文本批量修改工具 (网页版)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #fff;
+            width: 100%;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #4a5568;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+            background-color: #f8fafc;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background-color: #fff;
+        }
+        .btn-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+        .btn {
+            background-color: #3b82f6;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+        .btn:hover {
+            background-color: #2563eb;
+        }
+        .btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .log-box {
+            background: #1e293b;
+            color: #38bdf8;
+            padding: 15px;
+            border-radius: 6px;
+            height: 250px;
+            overflow-y: auto;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .log-success { color: #4ade80; }
+        .log-info { color: #facc15; }
+        .log-error { color: #f87171; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🌐 HTML 文本批量修改工具</h2>
+    
+    <div class="form-group">
+        <label>要查找的旧文本：</label>
+        <input type="text" id="oldText" value="Email: info@seapoe.com">
+    </div>
+    
+    <div class="form-group">
+        <label>替换成的新文本：</label>
+        <input type="text" id="newText" value="到位速递">
+    </div>
+    
+    <div class="btn-container">
+        <button class="btn" id="startBtn">选择文件夹并开始修改</button>
+    </div>
+    
+    <label>执行日志：</label>
+    <div class="log-box" id="logBox">等待操作...</div>
+</div>
+
+<script>
+    const startBtn = document.getElementById('startBtn');
+    const logBox = document.getElementById('logBox');
+
+    function log(message, type = '') {
+        const span = document.createElement('span');
+        if (type) span.className = `log-${type}`;
+        span.textContent = message + '\n';
+        logBox.appendChild(span);
+        logBox.scrollTop = logBox.scrollHeight;
+    }
+
+    startBtn.addEventListener('click', async () => {
+        const oldText = document.getElementById('oldText').value;
+        const newText = document.getElementById('newText').value;
+
+        if (!oldText) {
+            alert('请输入要查找的旧文本！');
+            return;
+        }
+
+        // 检查浏览器是否支持该 API
+        if (!window.showDirectoryPicker) {
+            alert('您的浏览器版本过低或不支持此安全特性，请使用最新版的 Chrome、Edge 或 Safari 浏览器打开此网页。');
+            return;
+        }
+
+        try {
+            // 1. 让用户选择本地文件夹
+            const dirHandle = await window.showDirectoryPicker();
+            logBox.textContent = ''; // 清空日志
+            log(`[开始] 已成功连接文件夹: ${dirHandle.name}`, 'info');
+            startBtn.disabled = true;
+
+            let successCount = 0;
+            let skipCount = 0;
+
+            // 2. 递归遍历文件的函数
+            async function processDirectory(handle) {
+                for await (const entry of handle.values()) {
+                    if (entry.kind === 'file') {
+                        // 只处理 .html 和 .htm 文件
+                        if (entry.name.endsWith('.html') || entry.name.endsWith('.htm')) {
+                            try {
+                                const file = await entry.getFile();
+                                const content = await file.text();
+
+                                // 如果包含目标文本，则进行修改
+                                if (content.includes(oldText)) {
+                                    const updatedContent = content.split(oldText).join(newText);
+                                    
+                                    // 写入覆盖原文件
+                                    const writable = await entry.createWritable();
+                                    await writable.write(updatedContent);
+                                    await writable.close();
+                                    
+                                    log(`[成功] 已修改: ${entry.name}`, 'success');
+                                    successCount++;
+                                } else {
+                                    skipCount++;
+                                }
+                            } catch (fileErr) {
+                                log(`[失败] 无法读写文件 ${entry.name}: ${fileErr.message}`, 'error');
+                            }
+                        }
+                    } else if (entry.kind === 'directory') {
+                        // 如果是子文件夹，递归进入
+                        await processDirectory(entry);
+                    }
+                }
+            }
+
+            // 执行遍历
+            await processDirectory(dirHandle);
+            
+            log(`\n================ 任务完成 ================`, 'info');
+            log(` 成功修改文件数: ${successCount} 个`, 'success');
+            log(` 未包含目标文本数: ${skipCount} 个`);
+            log(`==========================================`, 'info');
+
+        } catch (err) {
+            if (err.name === 'AbortError') {
+                log('[提示] 用户取消了文件夹选择。');
+            } else {
+                log(`[错误] 操作失败: ${err.message}`, 'error');
+            }
+        } finally {
+            startBtn.disabled = false;
+        }
+    });
+</script>
+
+</body>
+</html>
