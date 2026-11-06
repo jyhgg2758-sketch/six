@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>到位速递 | DaoWei Express - Global Logistics & Cross-Border Supply Chain</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cormorant Garamond & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0a0a0c',
+                        surface: '#121316',
+                        surfacelight: '#1a1c21',
+                        champagne: '#d4af37',
+                        champagnelight: '#e6ca65',
+                        champagnedark: '#b8972b',
+                        bronze: '#c5a059',
+                        muted: '#9ca3af'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0c;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+        .glass-panel {
+            background: rgba(18, 19, 22, 0.78);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #fef3c7 40%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-glow {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(212,175,55,0.09) 0%, rgba(10,10,12,0) 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-gray-100 antialiased selection:bg-champagne selection:text-black">
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-500 bg-champagne text-black px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3 font-medium border border-white/20">
+        <i class="fa-solid fa-circle-check text-xl"></i>
+        <span id="toast-message">Operation completed successfully.</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-obsidian/85 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-champagne to-champagnedark flex items-center justify-center text-black font-serif font-bold text-2xl shadow-lg shadow-champagne/20 group-hover:scale-105 transition-transform">
+                    到位
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl font-bold tracking-widest text-white">到位速递</span>
+                    <span class="text-[9px] uppercase tracking-[0.25em] text-champagne -mt-1 font-semibold">DaoWei Express & Logistics</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium text-gray-300">
+                <a href="#services" class="hover:text-champagne transition-colors">Services</a>
+                <a href="#calculator" class="hover:text-champagne transition-colors">Rate Calculator</a>
+                <a href="#tracker" class="hover:text-champagne transition-colors">Track Shipment</a>
+                <a href="#workflow" class="hover:text-champagne transition-colors">Workflow</a>
+                <a href="#cases" class="hover:text-champagne transition-colors">Case Studies</a>
+                <a href="#insights" class="hover:text-champagne transition-colors">Insights</a>
+                <a href="#contact" class="hover:text-champagne transition-colors">Contact</a>
+            </nav>
+
+            <!-- Actions & Contact Quick -->
+            <div class="hidden lg:flex items-center space-x-5">
+                <div class="dropdown relative group">
+                    <button class="text-xs text-gray-300 hover:text-champagne flex items-center gap-1.5 py-2">
+                        <i class="fa-solid fa-phone text-champagne"></i> +1 (438) 228-7888 <i class="fa-solid fa-angle-down text-[10px]"></i>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-56 glass-panel rounded-xl p-3 shadow-2xl hidden group-hover:block space-y-2 text-xs">
+                        <a href="tel:+14382287888" class="block text-gray-300 hover:text-champagne py-1">CA: +1 (438) 228-7888</a>
+                        <a href="tel:+19176210118" class="block text-gray-300 hover:text-champagne py-1">US: +1 (917) 621-0118</a>
+                        <a href="tel:5145522066" class="block text-gray-300 hover:text-champagne py-1">Direct: 514-552-2066</a>
+                        <div class="border-t border-white/10 pt-2 text-champagne font-semibold flex items-center justify-between">
+                            <span>WeChat: fundes</span>
+                            <i class="fa-brands fa-weixin"></i>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="openModal()" class="bg-gradient-to-r from-champagne to-champagnedark hover:from-champagnelight hover:to-champagne text-black font-semibold px-5 py-2.5 rounded-lg text-xs uppercase tracking-widest transition-all transform hover:-translate-y-0.5 shadow-xl shadow-champagne/20">
+                    Get Free Quote
+                </button>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-gray-300 hover:text-white focus:outline-none p-2">
+                <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-surface border-b border-white/10 px-6 pt-6 pb-8 space-y-4">
+            <a href="#services" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne font-medium text-base">Services</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne font-medium text-base">Rate Calculator</a>
+            <a href="#tracker" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne font-medium text-base">Track Shipment</a>
+            <a href="#workflow" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne font-medium text-base">Workflow</a>
+            <a href="#cases" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne font-medium text-base">Case Studies</a>
+            <a href="#insights" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne font-medium text-base">Insights</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne font-medium text-base">Contact Us</a>
+            <div class="pt-4 border-t border-white/10 space-y-3">
+                <p class="text-xs text-gray-400">Hotlines: +1 (438) 228-7888 | WeChat: fundes</p>
+                <button onclick="toggleMobileMenu(); openModal();" class="w-full bg-champagne text-black font-semibold py-3 rounded-lg text-xs uppercase tracking-widest text-center shadow-lg">
+                    Get Free Quote
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-32 pb-24 flex items-center justify-center overflow-hidden">
+        <!-- Background SVG Graphic & Atmosphere -->
+        <div class="absolute inset-0 z-0 flex items-center justify-center opacity-30">
+            <svg class="w-full h-full max-w-7xl animate-pulse duration-[8000ms]" viewBox="0 0 1000 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="500" cy="400" r="320" stroke="url(#paint0_linear)" stroke-width="1.5" stroke-dasharray="8 8"/>
+                <circle cx="500" cy="400" r="240" stroke="url(#paint1_linear)" stroke-width="1" opacity="0.6"/>
+                <path d="M150 400H850" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
+                <path d="M500 50V750" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
+                <defs>
+                    <linearGradient id="paint0_linear" x1="180" y1="80" x2="820" y2="720" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#d4af37" stop-opacity="0.8"/>
+                        <stop offset="1" stop-color="#0a0a0c" stop-opacity="0.1"/>
+                    </linearGradient>
+                    <linearGradient id="paint1_linear" x1="260" y1="160" x2="740" y2="640" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ffffff" stop-opacity="0.6"/>
+                        <stop offset="1" stop-color="#d4af37" stop-opacity="0.2"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-obsidian/40 z-0"></div>
+        <div class="hero-glow top-1/3 left-1/2 -translate-x-1/2"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel text-champagne text-xs uppercase tracking-[0.25em] font-semibold shadow-2xl">
+                <i class="fa-solid fa-globe"></i> Global Cross-Border Express & Supply Chain Mastery
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] max-w-5xl mx-auto">
+                Bridging Continents with <span class="gold-gradient-text italic">Precision Logistics</span> & Speed
+            </h1>
+            
+            <p class="text-gray-300 text-base sm:text-xl max-w-3xl mx-auto font-light leading-relaxed">
+                Montreal & Global express delivery, air & ocean freight forwarding, bonded warehousing, and customs clearance engineered for elite enterprises and cross-border merchants.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4">
+                <button onclick="openModal()" class="w-full sm:w-auto bg-gradient-to-r from-champagne to-champagnedark hover:from-champagnelight hover:to-champagne text-black font-semibold px-8 py-4 rounded-xl text-sm uppercase tracking-wider transition-all transform hover:-translate-y-1 shadow-2xl shadow-champagne/25 flex items-center justify-center gap-3">
+                    <span>Request Instant Shipping Quote</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+                <a href="#tracker" class="w-full sm:w-auto glass-panel hover:border-champagne/50 text-white font-medium px-8 py-4 rounded-xl text-sm uppercase tracking-wider transition-all text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass text-champagne"></i> Track Package
+                </a>
+            </div>
+
+            <!-- Trust Metrics Bar -->
+            <div class="pt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="glass-panel p-6 rounded-2xl text-center transform hover:border-champagne/40 transition">
+                    <p class="text-3xl sm:text-4xl font-bold font-serif gold-gradient-text">50%</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Average Cost Savings</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl text-center transform hover:border-champagne/40 transition">
+                    <p class="text-3xl sm:text-4xl font-bold font-serif gold-gradient-text">99.8%</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">On-Time Delivery Rate</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl text-center transform hover:border-champagne/40 transition">
+                    <p class="text-3xl sm:text-4xl font-bold font-serif gold-gradient-text">100k+</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Successful Shipments</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl text-center transform hover:border-champagne/40 transition">
+                    <p class="text-3xl sm:text-4xl font-bold font-serif gold-gradient-text">24/7</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Bilingual Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tracking & Rate Calculator Section -->
+    <section id="tracker" class="py-20 bg-surface/50 border-y border-white/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Live Tracking Simulation Box -->
+                <div class="glass-panel p-8 rounded-2xl space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-champagne text-xs font-semibold uppercase tracking-widest">Real-Time Tracking</span>
+                            <h3 class="text-2xl font-serif font-bold text-white">Track Your Shipment</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne text-xl">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <input type="text" id="tracking-input" placeholder="Enter Tracking Number (e.g. DW98237416)" class="flex-1 bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne font-mono">
+                        <button onclick="simulateTracking()" class="bg-champagne hover:bg-champagnelight text-black font-semibold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition">
+                            Track
+                        </button>
+                    </div>
+                    <div id="tracking-result" class="hidden space-y-4 pt-4 border-t border-white/10">
+                        <div class="flex justify-between text-xs text-gray-400 font-mono">
+                            <span>Status: <strong class="text-champagne">In Transit / Out for Delivery</strong></span>
+                            <span>Est: Today, 3:30 PM</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-champagne text-black flex items-center justify-center text-xs font-bold mt-0.5">✓</div>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">Arrived at Montreal Sorting Facility</p>
+                                    <p class="text-xs text-gray-400">Today at 08:15 AM</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-champagne text-black flex items-center justify-center text-xs font-bold mt-0.5">✓</div>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">Customs Clearance Cleared Successfully</p>
+                                    <p class="text-xs text-gray-400">Yesterday at 14:20 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Rate Calculator Box -->
+                <div id="calculator" class="glass-panel p-8 rounded-2xl space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-champagne text-xs font-semibold uppercase tracking-widest">Instant Estimator</span>
+                            <h3 class="text-2xl font-serif font-bold text-white">Shipping Rate Calculator</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne text-xl">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Origin</label>
+                            <select id="calc-origin" class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                                <option value="shanghai">Shanghai, China (Hub)</option>
+                                <option value="montreal">Montreal, Canada</option>
+                                <option value="newyork">New York, USA</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Destination</label>
+                            <select id="calc-dest" class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                                <option value="montreal">Montreal, Canada</option>
+                                <option value="vancouver">Vancouver, Canada</option>
+                                <option value="newyork">New York, USA</option>
+                                <option value="paris">Paris, France</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Weight (KG)</label>
+                            <input type="number" id="calc-weight" value="10" class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Service Type</label>
+                            <select id="calc-service" class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                                <option value="air">Air Express (3-5 Days)</option>
+                                <option value="sea">Sea Freight (25-35 Days)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button onclick="calculateRate()" class="w-full bg-gradient-to-r from-champagne to-champagnedark text-black font-semibold py-3 rounded-xl text-xs uppercase tracking-widest shadow-xl transition">
+                        Calculate Estimated Rate
+                    </button>
+                    <div id="calc-result" class="hidden text-center p-3 rounded-xl bg-surface border border-champagne/30 text-champagne font-mono text-sm">
+                        Estimated Cost: <span id="rate-value" class="text-white font-bold text-lg">$145.00 CAD</span> (Approx. 3-5 Business Days)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Services Section -->
+    <section id="services" class="py-32 bg-obsidian">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                <span class="text-champagne text-xs font-semibold uppercase tracking-[0.3em] px-4 py-1.5 rounded-full glass-panel border border-champagne/20">Core Capabilities</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-bold text-white">Comprehensive Logistics & Supply Chain Solutions</h2>
+                <p class="text-gray-400 text-base sm:text-lg">Engineered for seamless cross-border commerce, B2B wholesale freight, and secure express delivery.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-panel p-8 rounded-2xl space-y-5 hover:border-champagne/60 transition duration-300 flex flex-col justify-between">
+                    <div class="w-14 h-14 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne text-2xl">
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold font-serif text-white">International Express</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Door-to-door express parcel delivery connecting China, North America, and Europe with priority customs clearance.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">3-5 Business Days</span>
+                        <button onclick="openModal()" class="text-champagne text-xs font-semibold uppercase tracking-widest hover:underline">Inquire <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-panel p-8 rounded-2xl space-y-5 hover:border-champagne/60 transition duration-300 flex flex-col justify-between">
+                    <div class="w-14 h-14 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne text-2xl">
+                        <i class="fa-solid fa-ship"></i>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold font-serif text-white">Air & Ocean Freight Forwarding</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">FCL and LCL container shipping, bulk cargo chartering, and multi-modal transport with full marine insurance coverage.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">Competitive Wholesale Rates</span>
+                        <button onclick="openModal()" class="text-champagne text-xs font-semibold uppercase tracking-widest hover:underline">Inquire <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-panel p-8 rounded-2xl space-y-5 hover:border-champagne/60 transition duration-300 flex flex-col justify-between">
+                    <div class="w-14 h-14 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne text-2xl">
+                        <i class="fa-solid fa-warehouse"></i>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold font-serif text-white">Cross-Border E-Commerce Warehousing</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Bonded warehouses in Montreal, Vancouver, and Shanghai offering secure storage, pick-and-pack, and inventory fulfillment.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">Smart WMS Integration</span>
+                        <button onclick="openModal()" class="text-champagne text-xs font-semibold uppercase tracking-widest hover:underline">Inquire <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-panel p-8 rounded-2xl space-y-5 hover:border-champagne/60 transition duration-300 flex flex-col justify-between">
+                    <div class="w-14 h-14 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne text-2xl">
+                        <i class="fa-solid fa-file-shield"></i>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold font-serif text-white">Custom Customs Brokerage</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Licensed customs brokerage ensuring fast tariff compliance, duty optimization, and zero-delay border clearance.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">100% Regulatory Compliance</span>
+                        <button onclick="openModal()" class="text-champagne text-xs font-semibold uppercase tracking-widest hover:underline">Inquire <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-panel p-8 rounded-2xl space-y-5 hover:border-champagne/60 transition duration-300 flex flex-col justify-between">
+                    <div class="w-14 h-14 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne text-2xl">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold font-serif text-white">Residential & Commercial Logistics</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Specialized heavy freight, building material transport, and commercial furniture distribution for real estate projects.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">Site-to-Site Delivery</span>
+                        <button onclick="openModal()" class="text-champagne text-xs font-semibold uppercase tracking-widest hover:underline">Inquire <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-panel p-8 rounded-2xl space-y-5 hover:border-champagne/60 transition duration-300 flex flex-col justify-between">
+                    <div class="w-14 h-14 rounded-xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne text-2xl">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-2xl font-bold font-serif text-white">Special Cargo & Fragile Handling</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Custom wooden crating, temperature-controlled transport, and white-glove delivery for luxury valuables and artwork.</p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-gray-400 font-mono">Zero-Damage Guarantee</span>
+                        <button onclick="openModal()" class="text-champagne text-xs font-semibold uppercase tracking-widest hover:underline">Inquire <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step Workflow ("How It Works") -->
+    <section id="workflow" class="py-32 bg-surface/40 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                <span class="text-champagne text-xs font-semibold uppercase tracking-[0.3em] px-4 py-1.5 rounded-full glass-panel border border-champagne/20">Operational Excellence</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-bold text-white">Our 5-Step Logistics Framework</h2>
+                <p class="text-gray-400 text-base">A rigorous end-to-end process designed for complete transparency and absolute reliability.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                <!-- Step 1 -->
+                <div class="glass-panel p-6 rounded-2xl relative group hover:border-champagne transition">
+                    <div class="w-10 h-10 bg-champagne text-black rounded-lg font-serif font-bold text-lg flex items-center justify-center mb-5 shadow-lg shadow-champagne/20">
+                        01
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Requirement Collection</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Submit your cargo details, weight, dimensions, and destination through our instant quote portal.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-panel p-6 rounded-2xl relative group hover:border-champagne transition">
+                    <div class="w-10 h-10 bg-champagne text-black rounded-lg font-serif font-bold text-lg flex items-center justify-center mb-5 shadow-lg shadow-champagne/20">
+                        02
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Quote & Route Design</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Receive optimized cost estimates and the fastest air or ocean routing mapped by our logistics experts.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-panel p-6 rounded-2xl relative group hover:border-champagne transition">
+                    <div class="w-10 h-10 bg-champagne text-black rounded-lg font-serif font-bold text-lg flex items-center justify-center mb-5 shadow-lg shadow-champagne/20">
+                        03
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Customs & Packing</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Professional reinforcing, fumigated wooden crating, and pre-clearance documentation preparation.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="glass-panel p-6 rounded-2xl relative group hover:border-champagne transition">
+                    <div class="w-10 h-10 bg-champagne text-black rounded-lg font-serif font-bold text-lg flex items-center justify-center mb-5 shadow-lg shadow-champagne/20">
+                        04
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Global Transit</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Real-time GPS tracking across international airspace, maritime lanes, and bonded highway networks.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="glass-panel p-6 rounded-2xl relative group hover:border-champagne transition">
+                    <div class="w-10 h-10 bg-champagne text-black rounded-lg font-serif font-bold text-lg flex items-center justify-center mb-5 shadow-lg shadow-champagne/20">
+                        05
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Secure Delivery</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Final mile dispatch, doorstep drop-off or commercial warehouse offloading with signature confirmation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies / Global Projects Gallery -->
+    <section id="cases" class="py-32 bg-obsidian border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="space-y-4 max-w-2xl">
+                    <span class="text-champagne text-xs font-semibold uppercase tracking-[0.3em] px-4 py-1.5 rounded-full glass-panel border border-champagne/20">Global Track Record</span>
+                    <h2 class="text-4xl sm:text-5xl font-serif font-bold text-white">Featured Cross-Border Case Studies</h2>
+                    <p class="text-gray-400 text-base">Explore our successful delivery achievements across Montreal, Vancouver, New York, Shanghai, and Paris.</p>
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterCases('all')" id="btn-all" class="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider bg-champagne text-black transition-all">All Hubs</button>
+                    <button onclick="filterCases('montreal')" id="btn-montreal" class="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider glass-panel text-gray-300 hover:text-white transition-all">Montreal & CA</button>
+                    <button onclick="filterCases('us')" id="btn-us" class="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider glass-panel text-gray-300 hover:text-white transition-all">New York & US</button>
+                    <button onclick="filterCases('asia')" id="btn-asia" class="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider glass-panel text-gray-300 hover:text-white transition-all">Shanghai & Asia</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="case-grid">
+                <!-- Case 1 -->
+                <div class="case-card montreal glass-panel rounded-2xl overflow-hidden group">
+                    <div class="relative h-72 overflow-hidden bg-surfacelight flex items-center justify-center">
+                        <!-- Inline SVG Graphic -->
+                        <svg class="w-32 h-32 text-champagne/40 group-hover:scale-110 transition duration-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14h2M14 14h2M8 18h2M14 18h2"/></svg>
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-4 right-4 glass-panel text-champagne text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Montreal Hub</span>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between text-xs text-gray-400 font-mono">
+                            <span>Montreal, QC</span>
+                            <span>42 Metric Tons</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-serif text-white">Downtown Commercial Tower FF&E Logistics</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Urgent container freight consolidation and white-glove site delivery for a major commercial office complex in downtown Montreal.</p>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="case-card us glass-panel rounded-2xl overflow-hidden group">
+                    <div class="relative h-72 overflow-hidden bg-surfacelight flex items-center justify-center">
+                        <svg class="w-32 h-32 text-champagne/40 group-hover:scale-110 transition duration-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-4 right-4 glass-panel text-champagne text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">New York Hub</span>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between text-xs text-gray-400 font-mono">
+                            <span>New York, NY</span>
+                            <span>Express Air Freight</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-serif text-white">Manhattan Luxury Boutique Inventory Supply</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Time-critical express air delivery of high-end fashion and luxury retail displays connecting East Asia directly to Manhattan merchants.</p>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="case-card asia glass-panel rounded-2xl overflow-hidden group">
+                    <div class="relative h-72 overflow-hidden bg-surfacelight flex items-center justify-center">
+                        <svg class="w-32 h-32 text-champagne/40 group-hover:scale-110 transition duration-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-4 right-4 glass-panel text-champagne text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Shanghai Hub</span>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between text-xs text-gray-400 font-mono">
+                            <span>Shanghai, China</span>
+                            <span>FCL Bulk Cargo</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-serif text-white">Trans-Pacific Industrial Building Material Line</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Full container load coordination, fumigation certification, and customs brokerage for a large-scale North American real estate project.</p>
+                    </div>
+                </div>
+
+                <!-- Case 4 -->
+                <div class="case-card montreal glass-panel rounded-2xl overflow-hidden group">
+                    <div class="relative h-72 overflow-hidden bg-surfacelight flex items-center justify-center">
+                        <svg class="w-32 h-32 text-champagne/40 group-hover:scale-110 transition duration-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-4 right-4 glass-panel text-champagne text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Montreal Hub</span>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between text-xs text-gray-400 font-mono">
+                            <span>Vancouver & Montreal</span>
+                            <span>E-Commerce Fulfillment</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-serif text-white">Cross-Border E-Commerce Bonded Warehousing</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Multi-hub inventory management and same-day pick-and-pack fulfillment for leading cross-border online retail merchants.</p>
+                    </div>
+                </div>
+
+                <!-- Case 5 -->
+                <div class="case-card us glass-panel rounded-2xl overflow-hidden group">
+                    <div class="relative h-72 overflow-hidden bg-surfacelight flex items-center justify-center">
+                        <svg class="w-32 h-32 text-champagne/40 group-hover:scale-110 transition duration-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-4 right-4 glass-panel text-champagne text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">US Hub</span>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between text-xs text-gray-400 font-mono">
+                            <span>Los Angeles, CA</span>
+                            <span>Special Cargo</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-serif text-white">Custom Wooden Crating & Fragile Transport</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Specialized shock-absorbent crating and white-glove transport for delicate architectural glass installations across California.</p>
+                    </div>
+                </div>
+
+                <!-- Case 6 -->
+                <div class="case-card asia glass-panel rounded-2xl overflow-hidden group">
+                    <div class="relative h-72 overflow-hidden bg-surfacelight flex items-center justify-center">
+                        <svg class="w-32 h-32 text-champagne/40 group-hover:scale-110 transition duration-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 18H3a2 2 0 01-2-2V8a2 2 0 012-2h3.19M15 6h2a2 2 0 012 2v8a2 2 0 01-2 2h-3.19"/><line x1="23" y1="13" x2="23" y2="11"/><polyline points="11 6 15 12 11 18"/></svg>
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-4 right-4 glass-panel text-champagne text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Asia Hub</span>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between text-xs text-gray-400 font-mono">
+                            <span>Hong Kong / Shenzhen</span>
+                            <span>Express Freight</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-serif text-white">High-Tech Component Priority Air Logistics</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Secured overnight priority air cargo transport connecting southern China manufacturing centers with global technology hubs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights & Blog Section -->
+    <section id="insights" class="py-32 bg-surface/30 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                <span class="text-champagne text-xs font-semibold uppercase tracking-[0.3em] px-4 py-1.5 rounded-full glass-panel border border-champagne/20">Knowledge Base</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-bold text-white">Logistics Insights & Trade Guides</h2>
+                <p class="text-gray-400 text-base">Expert analysis on cross-border tariff regulations, container freight optimization, and supply chain strategies.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Blog 1 -->
+                <div class="glass-panel rounded-2xl overflow-hidden group hover:border-champagne/50 transition duration-300 flex flex-col justify-between">
+                    <div class="p-8 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 font-mono">
+                                <span><i class="fa-regular fa-calendar text-champagne mr-1"></i> Oct 22, 2026</span>
+                                <span>•</span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold font-serif text-white group-hover:text-champagne transition">Navigating Canada Customs Brokerage for Import Merchants</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Essential tips on tariff compliance, HS codes, and duty reduction strategies when shipping freight into Montreal and Vancouver.</p>
+                        </div>
+                        <button onclick="openModal()" class="pt-4 text-champagne text-xs font-semibold uppercase tracking-widest flex items-center gap-2 hover:underline">Read Article <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+                </div>
+
+                <!-- Blog 2 -->
+                <div class="glass-panel rounded-2xl overflow-hidden group hover:border-champagne/50 transition duration-300 flex flex-col justify-between">
+                    <div class="p-8 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 font-mono">
+                                <span><i class="fa-regular fa-calendar text-champagne mr-1"></i> Oct 10, 2026</span>
+                                <span>•</span>
+                                <span>7 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold font-serif text-white group-hover:text-champagne transition">Air Express vs. Ocean Freight: Which is Optimal for Your Cargo?</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">A detailed financial and timeline comparison between air forwarding and FCL/LCL ocean container shipping for businesses.</p>
+                        </div>
+                        <button onclick="openModal()" class="pt-4 text-champagne text-xs font-semibold uppercase tracking-widest flex items-center gap-2 hover:underline">Read Article <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+                </div>
+
+                <!-- Blog 3 -->
+                <div class="glass-panel rounded-2xl overflow-hidden group hover:border-champagne/50 transition duration-300 flex flex-col justify-between">
+                    <div class="p-8 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-gray-400 font-mono">
+                                <span><i class="fa-regular fa-calendar text-champagne mr-1"></i> Sep 29, 2026</span>
+                                <span>•</span>
+                                <span>6 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold font-serif text-white group-hover:text-champagne transition">Maximizing E-Commerce Efficiency with Bonded Warehousing</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">How localized warehouse fulfillment in North America accelerates delivery times and cuts last-mile shipping costs.</p>
+                        </div>
+                        <button onclick="openModal()" class="pt-4 text-champagne text-xs font-semibold uppercase tracking-widest flex items-center gap-2 hover:underline">Read Article <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Client Reviews -->
+    <section class="py-32 bg-surface/40 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                <span class="text-champagne text-xs font-semibold uppercase tracking-[0.3em] px-4 py-1.5 rounded-full glass-panel border border-champagne/20">Client Testimonials</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-bold text-white">Trusted by Global Merchants & Developers</h2>
+                <p class="text-gray-400 text-base">Read why importers, e-commerce sellers, and contractors rely on 到位速递 for their critical shipments.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-champagne space-x-1">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic font-serif text-base">
+                            "到位速递 has been our exclusive logistics partner for shipping commercial goods from China to Montreal. Their customs clearance is lightning fast and rates are unbeatable."
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-white/10 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-champagne/20 border border-champagne/40 flex items-center justify-center font-bold text-champagne font-serif text-lg">
+                            M.L.
+                        </div>
+                        <div>
+                            <h4 class="text-white text-sm font-semibold">Michael Liu</h4>
+                            <p class="text-xs text-gray-400">Director of Procurement, Montreal Trading Co.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-champagne space-x-1">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic font-serif text-base">
+                            "We had fragile architectural glass panels shipped to New York. Not a single piece was damaged thanks to their professional custom wooden crating and white-glove transport."
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-white/10 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-champagne/20 border border-champagne/40 flex items-center justify-center font-bold text-champagne font-serif text-lg">
+                            E.T.
+                        </div>
+                        <div>
+                            <h4 class="text-white text-sm font-semibold">Elena Thorne</h4>
+                            <p class="text-xs text-gray-400">Project Principal, NY Architectural Group</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex text-champagne space-x-1">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic font-serif text-base">
+                            "Their bilingual customer support reachable via WeChat (fundes) and phone makes cross-border shipping completely effortless. Highly recommended!"
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-white/10 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-champagne/20 border border-champagne/40 flex items-center justify-center font-bold text-champagne font-serif text-lg">
+                            D.W.
+                        </div>
+                        <div>
+                            <h4 class="text-white text-sm font-semibold">David Wang</h4>
+                            <p class="text-xs text-gray-400">E-Commerce Merchant, Vancouver</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact" class="bg-obsidian border-t border-white/10 pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
+                <!-- Col 1: Brand -->
+                <div class="lg:col-span-2 space-y-5">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-lg bg-champagne flex items-center justify-center text-black font-serif font-bold text-xl">
+                            到位
+                        </div>
+                        <span class="font-serif text-2xl font-bold tracking-widest text-white">到位速递</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+                        DaoWei Express provides premier international express delivery, air & ocean freight forwarding, customs brokerage, and cross-border supply chain solutions.
+                    </p>
+                    <div class="text-sm text-gray-300 space-y-2">
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-champagne"></i> CA: +1 (438) 228-7888 / 514-552-2066</p>
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-champagne"></i> US: +1 (917) 621-0118</p>
+                        <p class="flex items-center gap-2"><i class="fa-brands fa-weixin text-champagne"></i> WeChat ID: <strong class="text-white font-mono">fundes</strong></p>
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-champagne"></i> Montreal, QC, Canada | Global Hubs</p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-semibold text-xs uppercase tracking-[0.2em]">Services</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#services" class="hover:text-champagne transition-colors">International Express</a></li>
+                        <li><a href="#services" class="hover:text-champagne transition-colors">Air & Ocean Freight</a></li>
+                        <li><a href="#services" class="hover:text-champagne transition-colors">Bonded Warehousing</a></li>
+                        <li><a href="#services" class="hover:text-champagne transition-colors">Customs Brokerage</a></li>
+                        <li><a href="#services" class="hover:text-champagne transition-colors">Commercial Logistics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-semibold text-xs uppercase tracking-[0.2em]">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#tracker" class="hover:text-champagne transition-colors">Track Shipment</a></li>
+                        <li><a href="#calculator" class="hover:text-champagne transition-colors">Rate Calculator</a></li>
+                        <li><a href="#workflow" class="hover:text-champagne transition-colors">Workflow Process</a></li>
+                        <li><a href="#cases" class="hover:text-champagne transition-colors">Case Studies</a></li>
+                        <li><button onclick="openModal()" class="hover:text-champagne transition-colors text-left">Get Free Quote</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-semibold text-xs uppercase tracking-[0.2em]">Trade Newsletter</h4>
+                    <p class="text-gray-400 text-xs">Subscribe for weekly freight rate updates and customs regulation changes.</p>
+                    <form onsubmit="handleNewsletter(event)" class="space-y-3">
+                        <input type="email" required placeholder="Enter your email" class="w-full glass-panel border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                        <button type="submit" class="w-full bg-champagne hover:bg-champagnelight text-black font-semibold py-3 rounded-xl text-xs uppercase tracking-widest transition">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; 2026 到位速递 (DaoWei Express) LLC. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400 transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-gray-400 transition-colors">Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Proposal / Quote Modal -->
+    <div id="proposal-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden">
+        <div class="glass-panel rounded-2xl w-full max-w-xl p-8 sm:p-10 relative shadow-2xl max-h-[90vh] overflow-y-auto border border-champagne/30">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-8 space-y-2">
+                <span class="text-champagne text-xs font-semibold uppercase tracking-widest">Instant Logistics Inquiry</span>
+                <h3 class="text-3xl font-serif font-bold text-white">Request a Free Shipping Quote</h3>
+                <p class="text-xs text-gray-400">Connect directly with our Montreal & Global dispatch team. We respond within 15 minutes.</p>
+            </div>
+            <form onsubmit="submitProposal(event)" class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">Full Name *</label>
+                        <input type="text" required placeholder="John Doe" class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">Company / WeChat</label>
+                        <input type="text" placeholder="Company Name or WeChat ID" class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">Phone Number *</label>
+                        <input type="tel" required placeholder="+1 (438) 228-7888" class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">Service Required</label>
+                        <select class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                            <option>International Express (Door-to-Door)</option>
+                            <option>Air Freight Forwarding</option>
+                            <option>Ocean Freight (FCL / LCL)</option>
+                            <option>Customs Brokerage</option>
+                            <option>Cross-Border Warehousing</option>
+                            <option>Residential / Commercial Freight</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">Origin City / Country</label>
+                        <input type="text" required placeholder="e.g. Shanghai, China" class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">Destination City / Country</label>
+                        <input type="text" required placeholder="e.g. Montreal, Canada" class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1.5 uppercase tracking-wider">Cargo Weight & Details</label>
+                    <textarea rows="3" placeholder="Describe weight, volume, dimensions, and item types..." class="w-full bg-surface border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-champagne"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-champagne to-champagnedark text-black font-semibold py-4 rounded-xl text-xs uppercase tracking-widest shadow-xl transition hover:opacity-95">
+                    Submit Quote Request Now
+                </button>
+            </form>
+            <div class="mt-6 pt-4 border-t border-white/10 text-center text-xs text-gray-400">
+                Instant Hotline: <strong class="text-white">+1 (438) 228-7888</strong> | WeChat: <strong class="text-champagne">fundes</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactive Scripts -->
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
+        // Modal triggers
+        function openModal() {
+            document.getElementById('proposal-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('proposal-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('proposal-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-message');
+            msg.textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4500);
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            closeModal();
+            showToast('Quote request submitted successfully! Our dispatch team will contact you shortly.');
+            event.target.reset();
+        }
+
+        function handleNewsletter(event) {
+            event.preventDefault();
+            showToast('Subscribed successfully to 到位速递 trade insights!');
+            event.target.reset();
+        }
+
+        // Tracking Simulation
+        function simulateTracking() {
+            const input = document.getElementById('tracking-input').value.trim();
+            const result = document.getElementById('tracking-result');
+            if(!input) {
+                showToast('Please enter a valid tracking number.');
+                return;
+            }
+            result.classList.remove('hidden');
+            showToast('Tracking data retrieved successfully.');
+        }
+
+        // Rate Calculator
+        function calculateRate() {
+            const weight = parseFloat(document.getElementById('calc-weight').value) || 10;
+            const service = document.getElementById('calc-service').value;
+            const origin = document.getElementById('calc-origin').value;
+            const dest = document.getElementById('calc-dest').value;
+
+            let baseRate = service === 'air' ? 12.5 : 4.2;
+            let total = (weight * baseRate) + 25; // base fee
+            if(origin === 'shanghai' && dest === 'montreal') total *= 1.15;
+
+            const resDiv = document.getElementById('calc-result');
+            const valSpan = document.getElementById('rate-value');
+            valSpan.textContent = `$${total.toFixed(2)} CAD`;
+            resDiv.classList.remove('hidden');
+            showToast('Estimated shipping rate calculated successfully.');
+        }
+
+        // Case Studies Filter
+        function filterCases(category) {
+            const cards = document.querySelectorAll('.case-card');
+            const btnAll = document.getElementById('btn-all');
+            const btnMon = document.getElementById('btn-montreal');
+            const btnUs = document.getElementById('btn-us');
+            const btnAsia = document.getElementById('btn-asia');
+
+            const activeClass = 'px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider bg-champagne text-black transition-all';
+            const inactiveClass = 'px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider glass-panel text-gray-300 hover:text-white transition-all';
+
+            [btnAll, btnMon, btnUs, btnAsia].forEach(b => b.className = inactiveClass);
+
+            if(category === 'all') {
+                btnAll.className = activeClass;
+                cards.forEach(c => c.style.display = 'block');
+            } else if(category === 'montreal') {
+                btnMon.className = activeClass;
+                cards.forEach(c => {
+                    if(c.classList.contains('montreal')) c.style.display = 'block';
+                    else c.style.display = 'none';
+                });
+            } else if(category === 'us') {
+                btnUs.className = activeClass;
+                cards.forEach(c => {
+                    if(c.classList.contains('us')) c.style.display = 'block';
+                    else c.style.display = 'none';
+                });
+            } else if(category === 'asia') {
+                btnAsia.className = activeClass;
+                cards.forEach(c => {
+                    if(c.classList.contains('asia')) c.style.display = 'block';
+                    else c.style.display = 'none';
+                });
+            }
+        }
+    </script>
+</body>
+</html>

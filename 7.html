@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 动态SEO标签 -->
+    <title id="page-title">到位速递医疗设备寄中国服务中心 - 高端医疗仪器、手术器械与科研设备海运空运回国</title>
+    <meta id="page-keywords" name="keywords" content="医疗设备寄中国, 进口医疗仪器清关, 国外二手医疗设备回国, 医疗器械海运空运, 医用耗材双清包税">
+    <meta id="page-desc" name="description" content="到位速递专业提供全球80个国家及全境所有城市医疗设备寄回中国门到门服务。涵盖CT/MRI、手术显微镜、超声波仪器、牙科设备、实验室生化分析仪海运空运、专业木箱定制与合规进口清关。">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", sans-serif; }
+        .glass-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .buttons-section { background: #1a0507; padding: 60px 20px; margin-top: 50px; color: #fff; }
+        .buttons-container { max-width: 1200px; margin: 0 auto; }
+        .buttons-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .buttons-header h3 { font-size: 20px; font-weight: bold; color: #f8fafc; }
+        .badge { background: #dc2626; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .search-box { width: 100%; padding: 12px 16px; background: #2d060a; border: 1px solid #7f1d1d; border-radius: 12px; color: #fff; font-size: 14px; outline: none; margin-bottom: 20px; }
+        .grid-buttons { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; max-height: 350px; overflow-y: auto; padding-right: 5px; }
+        .btn-item { background: #3f1116; color: #fca5a5; padding: 8px 10px; border-radius: 8px; font-size: 11px; text-decoration: none; text-align: center; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .btn-item:hover { background: #dc2626; color: #fff; transform: translateY(-2px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-header border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="goToHome()">
+                <div class="bg-red-600 text-white p-2.5 rounded-2xl shadow-md">
+                    到位速遞
+                </div>
+                <div>
+                    <span id="nav-brand-title" class="text-xl sm:text-2xl font-black tracking-tight bg-gradient-to-r from-red-600 to-rose-700 bg-clip-text text-transparent">MedGlobal Red Cross</span>
+                    <span class="block text-xs font-medium text-gray-500">到位速递环球邮寄 · 环球邮寄代买代发</span>
+                </div>
+            </div>
+                        
+            <!-- 国家与城市联动下拉框 -->
+            <div class="flex items-center space-x-2">
+                <span class="text-xs text-gray-500 font-semibold hidden md:inline">发货国家(80国):</span>
+                <select id="global-city-switcher" onchange="switchCity(this.value)" class="bg-red-50 border border-red-200 text-red-700 text-xs font-bold px-3 py-2 rounded-xl outline-none cursor-pointer shadow-sm">
+                    <option value="usa">🇺🇸 美国 (USA)</option>
+                    <option value="canada">🇨🇦 加拿大 (Canada)</option>
+                    <option value="uk">🇬🇧 英国 (UK)</option>
+                    <option value="germany">🇩🇪 德国 (Germany)</option>
+                    <option value="japan">🇯🇵 日本 (Japan)</option>
+                </select>
+
+                <select id="sub-city-switcher" onchange="switchSubCity(this.value)" class="bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold px-3 py-2 rounded-xl outline-none cursor-pointer shadow-sm hidden sm:block">
+                    <option value="ALL">全境所有城市与科研院所</option>
+                </select>
+            </div>
+
+            <div class="hidden lg:flex items-center space-x-4">
+                <span id="header-country-tag" class="text-xs bg-red-50 text-red-700 px-3 py-1.5 rounded-lg font-bold border border-red-100">🇺🇸 美国医疗设备寄中国通道</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dynamic Content Area -->
+    <div id="app-container">
+        <!-- Hero Section -->
+        <section id="hero-section" class="relative bg-gray-900 text-white py-20 overflow-hidden">
+            <div class="absolute inset-0 opacity-45">
+                <img id="hero-bg-img" src="https://images.pexels.com/photos/3825527/pexels-photo-3825527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="全球医疗设备寄回中国" class="w-full h-full object-cover transition-all duration-1000">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span id="hero-badge" class="inline-block bg-red-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-lg">全球80国医疗仪器、手术器械与科研设备安全寄回中国红色专线</span>
+                <h1 id="hero-title" class="text-3xl sm:text-5xl font-black tracking-tight mb-4 drop-shadow-lg">将海外高端医疗设备安全、合规寄回中国</h1>
+                <p id="hero-desc" class="max-w-2xl mx-auto text-base sm:text-lg text-gray-200 mb-8 font-light">专业承运CT/核磁共振、手术显微镜、超声波诊断仪、牙科综合治疗台、实验室生化分析仪。提供海外上门提货、专业防震木箱打包、海关合规申报与国内三甲医院/科研机构派送。</p>
+                            
+                <!-- Search Bar -->
+                <div class="max-w-4xl mx-auto bg-white p-3 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-3 text-gray-800">
+                    <div class="flex-1 flex items-center px-4 py-3 bg-gray-50 rounded-xl border border-gray-100">
+                        <span class="text-red-600 mr-3 font-bold">📍</span>
+                        <span id="search-city-label" class="text-sm font-bold text-gray-700">当前发货国家全境覆盖</span>
+                    </div>
+                    <div class="flex-1 flex items-center px-4 py-3 bg-gray-50 rounded-xl border border-gray-100">
+                        <span class="text-red-600 mr-3 font-bold">到位速遞</span>
+                        <select id="filter-type" onchange="filterProperties()" class="w-full bg-transparent outline-none text-sm font-semibold cursor-pointer">
+                            <option value="">所有医疗设备寄送分类项目</option>
+                            <option value="精密医学影像与放射设备 (CT/MRI/X光)">精密医学影像与放射设备 (CT/MRI/X光)</option>
+                            <option value="手术室与ICU重症监护设备 (显微镜/呼吸机)">手术室与ICU重症监护设备 (显微镜/呼吸机)</option>
+                            <option value="实验室生化分析与检验仪器 (离心机/PCR)">实验室生化分析与检验仪器 (离心机/PCR)</option>
+                            <option value="口腔科全套治疗台与影像设备 (牙科CT/椅)">口腔科全套治疗台与影像设备 (牙科CT/椅)</option>
+                        </select>
+                    </div>
+                    <button onclick="filterProperties()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3 rounded-xl transition flex items-center justify-center shadow-md">
+                        🔍 查找医疗寄送方案
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 80国直观点击导航栏 -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+            <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm space-y-4">
+                <div>
+                    <div class="text-xs font-bold text-gray-800 mb-2">🌍 全球80个发货国家（点击切换国家）：</div>
+                    <div id="country-buttons-box" class="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto p-1"></div>
+                </div>
+                <div class="border-t border-gray-100 pt-3">
+                    <div id="city-buttons-title" class="text-xs font-bold text-gray-800 mb-2">⚓ 当前国家覆盖主要城市与医学院校：</div>
+                    <div id="city-buttons-box" class="flex flex-wrap gap-1.5"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <main id="main-content-area" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div id="list-view-box">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-2">
+                    <div>
+                        <h2 id="section-heading" class="text-2xl font-bold tracking-tight">美国医疗设备寄中国专线与服务网点</h2>
+                        <p class="text-sm text-gray-500">本国已开通 <span id="property-count" class="font-semibold text-red-600">2000000</span> 个医疗寄回专线站点（每页展示200个，共计 <span id="total-pages-label" class="font-semibold text-red-600">10000</span> 页）</p>
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        合规保障: <span class="text-red-600 font-semibold">✓ 海关正规报关 · 专业恒温防震木箱 · 送达国内医院</span>
+                    </div>
+                </div>
+
+                <!-- Properties Grid -->
+                <div id="properties-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+
+                <!-- Pagination -->
+                <div id="pagination-container" class="flex flex-wrap justify-center items-center gap-1.5 mt-12"></div>
+            </div>
+
+            <!-- Detail View -->
+            <div id="detail-view-box" style="display: none;"></div>
+        </main>
+
+        <!-- 📞 联系我们与在线客服专区 (新增模块) -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
+            <div class="bg-gradient-to-br from-red-900 via-rose-900 to-gray-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-red-800">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <span class="bg-red-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">24/7 Professional Support</span>
+                    <h2 class="text-3xl sm:text-4xl font-black mt-3 mb-4">联系我们与专属在线客服</h2>
+                    <p class="text-red-200 text-sm">无论您需要海外高端医疗器械拆装评估、海关商检合规咨询还是多国运费报价，我们的医疗物流专家随时为您提供一对一咨询服务。</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center bg-black/30 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-red-900/50">
+                    <!-- 左侧：在线客服快捷通道 -->
+                    <div class="space-y-6 text-center lg:text-left">
+                        <div class="flex items-center justify-center lg:justify-start space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-xl shadow-lg">💬</div>
+                            <div>
+                                <h3 class="font-bold text-lg">在线客服即时响应</h3>
+                                <p class="text-xs text-red-300">平均回复时间小于 1 分钟</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            支持随时通过在线客服系统与值班经理进行技术沟通。提供全天候中英文双语对接，协助核算整机尺寸、防护木箱规格及关税指导。
+                        </p>
+                        <div>
+                            <a href="https://www.donlk.com/index888.html" target="_blank" class="inline-flex items-center justify-center bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 text-sm">
+                                🚀 点击进入在线客服系统
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 中间：微信二维码扫码联系 -->
+                    <div class="flex flex-col items-center justify-center bg-white/5 p-6 rounded-2xl border border-red-500/20 text-center">
+                        <div class="bg-white p-3 rounded-xl shadow-md mb-3">
+                            <!-- 微信二维码图片（可更换为您真实的二维码图片链接） -->
+                            <img src="https://cdn.pixabay.com/photo/2026/10/30/01/32/01-32-28-109_640.jpg" alt="官方微信客服二维码" class="w-36 h-36 object-contain">
+                        </div>
+                        <span class="text-xs font-bold text-red-300 bg-red-950/80 px-3 py-1 rounded-full border border-red-800">📱 微信扫一扫加专属客服</span>
+                        <p class="text-[11px] text-gray-400 mt-2">微信号：<strong class="text-white">fundes</strong> (或直接扫码添加)</p>
+                    </div>
+
+                    <!-- 右侧：全球服务热线与电邮 -->
+                    <div class="space-y-4 text-center lg:text-left">
+                        <div class="flex items-center justify-center lg:justify-start space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-xl shadow-lg">☎️</div>
+                            <div>
+                                <h3 class="font-bold text-lg">全球业务热线</h3>
+                                <p class="text-xs text-red-300">周一至周日 24小时值班</p>
+                            </div>
+                        </div>
+                        <div class="bg-black/20 p-4 rounded-xl border border-red-900/30 text-xs space-y-2">
+                            <div>🇨🇦 <strong>美国纽约服务：</strong>+1（917）621-0118 </div>
+                            <div>🇺🇸 <strong>美国纽约服务：</strong>+1 (438) 228-7888</div>
+                            <div>📧 <strong>美国纽约服务：</strong>+1（778）3832208</div>
+                            <div>🇨🇦 <strong>美国拉斯维加斯：</strong>+1（917）621-0118 </div>
+                            <div>🇺🇸 <strong>美国纽约客服：</strong>DUNDES</div>
+                            <div>📧 <strong>欧洲客服服务：</strong>+372）81524808</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 底部 3299 个分站导航矩阵 -->
+    <div class="buttons-section" id="buttons-area">
+        <div class="buttons-container">
+            <div class="buttons-header">
+                <h3>📁 全球医疗设备寄中国分站与站点矩阵</h3>
+                <span class="badge">总计: 3299 个独立分站</span>
+            </div>
+            <p style="color:#cbd5e1; font-size:13px; margin-bottom:15px;">您可以在下方直接搜索编号或海外城市名称，点击任意链接查看对应的医疗寄回专项独立分站（1.html ~ 3299.html）：</p>
+                
+            <input type="text" id="btn-search" class="search-box" placeholder="输入编号或城市快速检索（例如：888 或 纽约、法兰克福、东京）..." oninput="filterButtons()">
+                
+            <div class="grid-buttons" id="buttons-grid"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs space-y-3">
+            <p id="footer-copy">© 2026 全球80国医疗设备寄回中国服务中心. All Rights Reserved. Medical Logistics Global Edition.</p>
+            <p id="footer-schools" class="text-gray-500">专业承运全球高校、医院及科研机构精密医疗仪器回国，提供一站式合规清关与物流服务。</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Engine -->
+    <script>
+        var pexelsImages = [
+            "https://images.pexels.com/photos/3825527/pexels-photo-3825527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/4225880/pexels-photo-4225880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/4056812/pexels-photo-4056812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/3825529/pexels-photo-3825529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/4225881/pexels-photo-4225881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/8436587/pexels-photo-8436587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/4167541/pexels-photo-4167541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/4269692/pexels-photo-4269692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/6823567/pexels-photo-6823567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/8376231/pexels-photo-8376231.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/3844581/pexels-photo-3844581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/5863389/pexels-photo-5863389.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/8436589/pexels-photo-8436589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/4056824/pexels-photo-4056824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        ];
+
+        var countryConfigList = [
+            { k: "usa", n: "美国·USA", c: "💬 在线客服到位速递", s: "洛杉矶,纽约,芝加哥,休斯顿,波士顿,旧金山,西雅图,亚特兰大,费城,圣地亚哥,底特律,明尼阿波利斯" },
+            { k: "canada", n: "加拿大·Canada", c: "🇨🇦 北美医疗物流区", s: "多伦多,温哥华,蒙特利尔,渥太华,卡尔加里,埃德蒙顿,魁北克城,温尼伯" },
+            { k: "germany", n: "德国·Germany", c: "🇩🇪 欧洲精密仪器区", s: "法兰克福,慕尼黑,柏林,汉堡,斯图加特,杜塞尔多夫,科隆,莱比锡" },
+            { k: "uk", n: "英国·UK", c: "🇬🇧 欧洲生物医药区", s: "伦敦,曼彻斯特,伯明翰,爱丁堡,格拉斯哥,利兹,剑桥,牛津" },
+            { k: "france", n: "法国·France", c: "🇫🇷 欧洲医疗器械区", s: "巴黎,里昂,马赛,图卢兹,尼斯,南特,斯特拉斯堡" },
+            { k: "japan", n: "日本·Japan", c: "🇯🇵 东亚精密医疗区", s: "东京,大阪,名古屋,横滨,福冈,京都,札幌,神户,仙台" },
+            { k: "southkorea", n: "韩国·Korea", c: "🇰🇷 东亚医疗物流区", s: "首尔,釜山,仁川,大邱,大田,光州,蔚山" },
+            { k: "singapore", n: "新加坡·Singapore", c: "🇸🇬 东南亚医疗枢纽", s: "新加坡港,樟宜医疗城,裕廊,大士,乌节路" },
+            { k: "switzerland", n: "瑞士·Switzerland", c: "🇨🇭 欧洲精密医疗区", s: "苏黎世,日内瓦,巴塞尔,伯尔尼,洛桑" },
+            { k: "sweden", n: "瑞典·Sweden", c: "🇸🇪 北欧医疗科技区", s: "斯德哥尔摩,哥德堡,马尔默,乌普萨拉" },
+            { k: "australia", n: "澳大利亚·Australia", c: "🇦🇺 大洋洲医疗物流区", s: "悉尼,墨尔本,布里斯班,珀斯,阿德莱德,堪培拉" },
+            { k: "italy", n: "意大利·Italy", c: "🇮🇹 欧洲医疗装备区", s: "米兰,罗马,热那亚,都灵,博洛尼亚,佛罗伦萨" },
+            { k: "netherlands", n: "荷兰·Netherlands", c: "🇳🇱 欧洲物流枢纽", s: "阿姆斯特丹,鹿特丹,海牙,乌得勒支,埃因霍温" },
+            { k: "israel", n: "以色列·Israel", c: "🇮🇱 中东医疗科技区", s: "特拉维夫,耶路撒冷,海法,贝尔谢巴" },
+            { k: "taiwan", n: "中国台湾·Taiwan", c: "🇨🇳 近海医疗器械区", s: "台北,高雄,台中,新竹,台南,桃园" },
+            { k: "india", n: "印度·India", c: "🇮🇳 南亚医疗制造区", s: "孟买,新德里,班加罗尔,海得拉巴,金奈,艾哈迈达巴德" }
+        ];
+
+        var cityDatabase = {};
+        for (var idx = 0; idx < countryConfigList.length; idx++) {
+            var item = countryConfigList[idx];
+            var cityArr = item.s.split(",");
+            var cnName = item.n.split("·")[0];
+            
+            var countryImgs = [
+                pexelsImages[idx % pexelsImages.length],
+                pexelsImages[(idx + 3) % pexelsImages.length],
+                pexelsImages[(idx + 7) % pexelsImages.length]
+            ];
+
+            cityDatabase[item.k] = {
+                name: item.n,
+                cnName: cnName,
+                tagline: item.n + " 到位速递 - 高端仪器海运空运与合规清关",
+                country: item.c,
+                schools: item.s,
+                cityList: cityArr,
+                images: countryImgs,
+                desc: "专注将" + cnName + "（" + cityArr.slice(0, 4).join("、") + "等城市）的各类医疗设备安全、合规寄回中国。提供上门提货、专业防震恒温木箱定制、海关商检报关与国内三甲医院、科研院所派送到门服务。"
+            };
+        }
+
+        var CURRENT_CITY_KEY = "usa";
+        var CURRENT_SUB_CITY = "ALL";
+        var currentCityData = cityDatabase[CURRENT_CITY_KEY];
+        var currentPage = 1;
+        var pageSize = 200;
+
+        var serviceTypes = [
+            "精密医学影像与放射设备 (CT/MRI/X光)",
+            "手术室与ICU重症监护设备 (显微镜/呼吸机)",
+            "实验室生化分析与检验仪器 (离心机/PCR)",
+            "口腔科全套治疗台与影像设备 (牙科CT/椅)"
+        ];
+
+        var productNames = [
+            "【进口医用磁共振MRI/CT扫描仪】海外实验室拆卸、真空防潮包装与回国空运专线",
+            "【蔡司/莱卡神经外科手术显微镜】精密光学仪器防震木箱定制与海关合规清关",
+            "【全自动生化分析仪/PCR基因扩增仪】冷链温控运输与国内三甲医院送货上门",
+            "【口腔CT机/牙科综合治疗椅】诊所整体设备搬迁与进口免税/征税代理申报",
+            "【ICU多参数监护仪/麻醉机/呼吸机】医院资产回国海运拼箱与商检合规服务",
+            "【超声波诊断仪/彩超设备探头】航空箱加固与加急空运回国直达服务"
+        ];
+
+        var productCargoDetails = [
+            "承运设备规格：大型磁体、扫描床、高压发生器、控制台（含专业工程师现场拆机评估与真空防震包装）",
+            "承运设备规格：蔡司Pentero、Leica等高端手术显微镜、光学镜头、平衡臂（专制航空铝箱+气囊减震）",
+            "承运设备规格：罗氏、西门子、贝克曼生化分析仪、全自动血球计数器、低温离心机（提供温度记录仪）",
+            "承运设备规格：卡瓦、西诺德牙科椅、口腔CBCT机、椅位一体机及配套附属精密工具",
+            "承运设备规格：迈瑞、德尔格、飞利浦监护及麻醉通气系统、输注泵站集群设备",
+            "承运设备规格：GE、飞利浦高端彩超主机及心脏、浅表、高频各类高灵敏度探头"
+        ];
+
+        var originPorts = ["纽约JFK机场/港口", "洛杉矶LAX/长滩港", "法兰克福空港", "东京成田机场", "伦敦希思罗机场", "新加坡樟宜机场", "温哥华国际机场", "苏黎世空港"];
+
+        window.getTotalCount = function() {
+            return 2000000;
+        };
+
+        window.getPropertyByIndex = function(i) {
+            var sType = serviceTypes[i % serviceTypes.length];
+            var pTitle = productNames[i % productNames.length];
+            var pCargo = productCargoDetails[i % productCargoDetails.length];
+            var oPort = originPorts[i % originPorts.length];
+            
+            var img = pexelsImages[i % pexelsImages.length];
+
+            var cList = currentCityData.cityList;
+            var targetCity = (CURRENT_SUB_CITY !== "ALL") ? CURRENT_SUB_CITY : cList[i % cList.length];
+
+            var fullTitle = "[" + currentCityData.cnName + "·" + targetCity + "] " + pTitle + " #" + (i + 1);
+            return {
+                id: i + 1,
+                title: fullTitle,
+                city: currentCityData.cnName + "·" + targetCity,
+                targetCity: targetCity,
+                originPort: oPort,
+                cargoInfo: pCargo,
+                price: 280 + (i * 37) % 3500,
+                rating: (4.91 + (i % 9) * 0.01).toFixed(2),
+                image: img,
+                type: sType,
+                description: "【" + oPort + " 直发中国 · " + currentCityData.cnName + "·" + targetCity + "】" + pCargo + "。医疗设备寄回专线网点 #" + (i + 1 + i * 7) + " 提供海外专业上门打包、海关商检合规申报、国家药监局合规咨询指引及国内医院门到门派送。"
+            };
+        };
+
+        function initWebsite() {
+            initCitySwitcher();
+            initSubCitySwitcher();
+            updatePageMetadata();
+            renderPaginatedProperties();
+            renderButtons();
+        }
+
+        function initCitySwitcher() {
+            var switcher = document.getElementById('global-city-switcher');
+            var btnBox = document.getElementById('country-buttons-box');
+            var keys = Object.keys(cityDatabase);
+
+            var selectHtml = "";
+            var btnsHtml = "";
+            for (var i = 0; i < keys.length; i++) {
+                var k = keys[i];
+                var d = cityDatabase[k];
+                var isSel = (k === CURRENT_CITY_KEY) ? "selected" : "";
+                selectHtml += '<option value="' + k + '" ' + isSel + '>' + (i + 1) + '. ' + d.name + '</option>';
+
+                var btnClass = (k === CURRENT_CITY_KEY)
+                    ? "bg-red-600 text-white border-red-600 shadow-sm"
+                    : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-red-50 hover:text-red-600";
+                btnsHtml += '<button onclick="switchCity(\'' + k + '\')" class="px-2.5 py-1 rounded-lg text-xs font-bold border transition ' + btnClass + '">' + (i + 1) + '.' + d.cnName + '</button>';
+            }
+
+            if (switcher) switcher.innerHTML = selectHtml;
+            if (btnBox) btnBox.innerHTML = btnsHtml;
+        }
+
+        function initSubCitySwitcher() {
+            var subSwitcher = document.getElementById('sub-city-switcher');
+            var cityBtnBox = document.getElementById('city-buttons-box');
+            var cityTitle = document.getElementById('city-buttons-title');
+            var cList = currentCityData.cityList;
+
+            if (cityTitle) {
+                cityTitle.innerHTML = '⚓ ' + currentCityData.cnName + '覆盖主要城市与医学院所（共 ' + cList.length + ' 城，点击筛选该城医疗寄回点）：';
+            }
+
+            var subHtml = '<option value="ALL" ' + (CURRENT_SUB_CITY === "ALL" ? "selected" : "") + '>' + currentCityData.cnName + '全境所有城市 (' + cList.length + '城)</option>';
+            var cBtnsHtml = '<button onclick="switchSubCity(\'ALL\')" class="px-3 py-1 rounded-full text-xs font-bold transition ' + (CURRENT_SUB_CITY === "ALL" ? "bg-rose-600 text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-gray-200") + '">全部' + currentCityData.cnName + '城市</button>';
+
+            for (var i = 0; i < cList.length; i++) {
+                var cName = cList[i];
+                var sel = (CURRENT_SUB_CITY === cName) ? "selected" : "";
+                subHtml += '<option value="' + cName + '" ' + sel + '>' + currentCityData.cnName + ' · ' + cName + '</option>';
+
+                var activeCls = (CURRENT_SUB_CITY === cName)
+                    ? "bg-rose-600 text-white shadow-sm"
+                    : "bg-gray-100 text-gray-700 hover:bg-rose-50 hover:text-rose-600";
+                cBtnsHtml += '<button onclick="switchSubCity(\'' + cName + '\')" class="px-3 py-1 rounded-full text-xs font-bold transition ' + activeCls + '">' + cName + '</button>';
+            }
+
+            if (subSwitcher) subSwitcher.innerHTML = subHtml;
+            if (cityBtnBox) cityBtnBox.innerHTML = cBtnsHtml;
+        }
+
+        function switchCity(cityKey) {
+            if (!cityDatabase[cityKey]) return;
+            CURRENT_CITY_KEY = cityKey;
+            CURRENT_SUB_CITY = "ALL";
+            currentCityData = cityDatabase[CURRENT_CITY_KEY];
+            currentPage = 1;
+
+            document.getElementById('hero-section').style.display = 'block';
+            document.getElementById('list-view-box').style.display = 'block';
+            document.getElementById('detail-view-box').style.display = 'none';
+
+            initCitySwitcher();
+            initSubCitySwitcher();
+            updatePageMetadata();
+            renderPaginatedProperties();
+        }
+
+        function switchSubCity(subCityName) {
+            CURRENT_SUB_CITY = subCityName;
+            currentPage = 1;
+
+            document.getElementById('hero-section').style.display = 'block';
+            document.getElementById('list-view-box').style.display = 'block';
+            document.getElementById('detail-view-box').style.display = 'none';
+
+            initSubCitySwitcher();
+            updatePageMetadata();
+            renderPaginatedProperties();
+        }
+
+        function updatePageMetadata() {
+            var subLabel = (CURRENT_SUB_CITY === "ALL") ? "全境科研院所与医院" : CURRENT_SUB_CITY;
+            document.getElementById("page-title").textContent = currentCityData.cnName + subLabel + "到位速递 - 高端仪器回国物流";
+            document.getElementById("nav-brand-title").textContent = currentCityData.cnName + "到位速递";
+            document.getElementById("header-country-tag").textContent = currentCityData.country;
+            document.getElementById("hero-badge").textContent = currentCityData.cnName + "医疗设备安全寄回中国首选服务商";
+            document.getElementById("hero-title").textContent = currentCityData.cnName + "【" + subLabel + "】医疗设备寄中国专线";
+            document.getElementById("hero-desc").textContent = currentCityData.desc;
+            document.getElementById("hero-bg-img").src = currentCityData.images[0];
+            document.getElementById("search-city-label").textContent = "当前发货地：" + currentCityData.cnName + " · " + subLabel;
+            document.getElementById("section-heading").textContent = currentCityData.cnName + "【" + subLabel + "】医疗仪器回国专线与网点";
+            document.getElementById("footer-schools").textContent = "本国覆盖城市与医疗机构网点：" + currentCityData.schools;
+        }
+
+        function renderPaginatedProperties() {
+            var filterEl = document.getElementById('filter-type');
+            var filterVal = filterEl ? filterEl.value : "";
+
+            var totalCount = window.getTotalCount();
+            var totalPages = Math.ceil(totalCount / pageSize);
+            if (currentPage > totalPages) currentPage = 1;
+
+            var currentList = [];
+            var startIndex = (currentPage - 1) * pageSize;
+            var step = 0;
+
+            while (currentList.length < pageSize && step < 5000) {
+                var item = window.getPropertyByIndex((startIndex + step) % totalCount);
+                if (!filterVal || item.type === filterVal) {
+                    currentList.push(item);
+                }
+                step++;
+            }
+
+            document.getElementById('property-count').textContent = totalCount;
+            document.getElementById('total-pages-label').textContent = totalPages;
+
+            renderPropertiesGrid(currentList);
+            renderPaginationControls(totalPages);
+        }
+
+        function renderPropertiesGrid(list) {
+            var grid = document.getElementById('properties-grid');
+            if (!grid) return;
+            
+            var html = "";
+            for (var i = 0; i < list.length; i++) {
+                var p = list[i];
+                html += '<div onclick="openLowLevelPage(' + p.id + ')" class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col">' +
+                    '<div class="relative h-52 overflow-hidden bg-gray-100">' +
+                        '<img src="' + p.image + '" alt="' + p.title + '" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">' +
+                        '<span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-gray-900 text-xs font-bold px-2.5 py-1 rounded-full shadow">📍 ' + p.city + '</span>' +
+                        '<span class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow">★ ' + p.rating + '</span>' +
+                        '<span class="absolute bottom-2 left-2 bg-gray-900/85 text-white text-[11px] font-bold px-2.5 py-1 rounded-lg">✈️ ' + p.originPort + '</span>' +
+                    '</div>' +
+                    '<div class="p-5 flex-1 flex flex-col justify-between">' +
+                        '<div>' +
+                            '<div class="text-xs font-bold text-red-600 mb-1">' + p.type + '</div>' +
+                            '<h3 class="font-bold text-gray-900 line-clamp-2 mb-2 group-hover:text-red-600 transition text-sm">' + p.title + '</h3>' +
+                            '<p class="text-xs text-gray-600 bg-gray-50 p-2.5 rounded-xl border border-gray-100 line-clamp-3 mb-4">' + p.cargoInfo + '</p>' +
+                        '</div>' +
+                        '<div class="flex items-center justify-between pt-3 border-t border-gray-100">' +
+                            '<div>' +
+                                '<span class="text-lg font-black text-red-600">¥' + p.price + '</span>' +
+                                '<span class="text-xs text-gray-400"> 起/公斤或整机</span>' +
+                            '</div>' +
+                            '<span class="text-xs text-rose-600 font-semibold">✓ 合规清关派送</span>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function openLowLevelPage(id) {
+            var p = window.getPropertyByIndex(id - 1);
+            if (!p) return;
+
+            document.getElementById('hero-section').style.display = 'none';
+            document.getElementById('list-view-box').style.display = 'none';
+            var detailBox = document.getElementById('detail-view-box');
+            detailBox.style.display = 'block';
+
+            detailBox.innerHTML = '<div class="mb-6">' +
+                    '<button onclick="goToHome()" class="inline-flex items-center text-xs font-bold bg-white border border-gray-200 px-4 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 shadow-sm transition cursor-pointer">' +
+                        '← 返回 ' + currentCityData.cnName + ' 医疗寄回专线列表' +
+                    '</button>' +
+                '</div>' +
+                '<div class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-100 shadow-xl grid grid-cols-1 lg:grid-cols-2 gap-10">' +
+                    '<div class="space-y-4">' +
+                        '<div class="relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-md">' +
+                            '<img src="' + p.image + '" alt="' + p.title + '" class="w-full h-full object-cover">' +
+                            '<span class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">★ ' + p.rating + ' / 5.0 医疗合规金牌专线</span>' +
+                        '</div>' +
+                        '<div class="grid grid-cols-3 gap-3 text-center">' +
+                            '<div class="bg-gray-50 p-3 rounded-xl border border-gray-100">🛡️<div class="text-xs font-bold mt-1">商检海关合规</div></div>' +
+                            '<div class="bg-gray-50 p-3 rounded-xl border border-gray-100">🏥<div class="text-xs font-bold mt-1">国内医院签收</div></div>' +
+                            '<div class="bg-gray-50 p-3 rounded-xl border border-gray-100">📦<div class="text-xs font-bold mt-1">恒温防震木箱</div></div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="flex flex-col justify-between space-y-6">' +
+                        '<div>' +
+                            '<span class="inline-block bg-red-50 text-red-600 text-xs font-extrabold px-3 py-1 rounded-full mb-2">' + p.city + ' · ' + p.originPort + '直发</span>' +
+                            '<h1 class="text-2xl sm:text-3xl font-black text-gray-900 mb-4">' + p.title + '</h1>' +
+                            '<p class="text-gray-600 text-sm leading-relaxed mb-4">' + p.description + '</p>' +
+                            '<div class="bg-gray-50 border border-gray-200 p-4 rounded-2xl mb-4 text-xs space-y-2">' +
+                                '<div><strong>设备分类：</strong>' + p.type + '</div>' +
+                                '<div><strong>海外起运港：</strong>' + p.originPort + '（支持全境上门提货与专业拆机）</div>' +
+                                '<div><strong>目的收货地：</strong>中国大陆各大医院、医学院校、科研实验室</div>' +
+                                '<div><strong>设备配置明细：</strong>' + p.cargoInfo + '</div>' +
+                            '</div>' +
+                            '<div class="bg-red-50 border border-red-100 p-4 rounded-2xl mb-6">' +
+                                '<h4 class="text-xs font-bold text-red-900 uppercase tracking-wide mb-1">ℹ️ ' + p.city + ' 医疗器械回国全流程保障说明</h4>' +
+                                '<p class="text-xs text-red-700">包含海外工程师现场勘测与无损拆解、定制真空防震恒温木箱、出口报关、国际航空/海运运输、中国海关正式报关、免税或征税代理以及国内专车运送至最终实验室或手术室。</p>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="border-t border-gray-100 pt-6 flex items-center justify-between">' +
+                            '<div>' +
+                                '<span class="text-3xl font-black text-red-600">¥' + p.price + '</span>' +
+                                '<span class="text-xs text-gray-400"> 起/公斤或整机报价</span>' +
+                            '</div>' +
+                            '<button onclick="window.open(\'https://www.donlk.com/index888.html\', \'_blank\')" class="bg-red-600 hover:bg-red-700 text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl transition flex items-center text-sm cursor-pointer">' +
+                                '📞 预约 ' + p.city + ' 医疗设备寄回服务' +
+                            '</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToHome() {
+            document.getElementById('detail-view-box').style.display = 'none';
+            document.getElementById('hero-section').style.display = 'block';
+            document.getElementById('list-view-box').style.display = 'block';
+        }
+
+        function renderPaginationControls(totalPages) {
+            var container = document.getElementById('pagination-container');
+            if (!container) return;
+            if (totalPages <= 1) { container.innerHTML = ''; return; }
+
+            var html = '<button onclick="changePage(' + (currentPage - 1) + ')" ' + (currentPage === 1 ? 'disabled class="opacity-40 cursor-not-allowed px-3 py-1.5 bg-white border rounded-lg text-xs font-medium"' : 'class="px-3 py-1.5 bg-white border rounded-lg text-xs font-medium hover:bg-gray-50 cursor-pointer"') + '>上一页</button>';
+                
+            var startPage = Math.max(1, currentPage - 3);
+            var endPage = Math.min(totalPages, startPage + 6);
+            if (endPage - startPage < 6) {
+                startPage = Math.max(1, endPage - 6);
+            }
+
+            if (startPage > 1) {
+                html += '<button onclick="goToPage(1)" class="px-3 py-1.5 bg-white border rounded-lg text-xs font-medium hover:bg-gray-50 cursor-pointer">1</button>';
+                if (startPage > 2) html += '<span class="px-2 text-gray-400">...</span>';
+            }
+
+            for (var i = startPage; i <= endPage; i++) {
+                var btnCls = (currentPage === i) ? 'bg-red-600 text-white shadow-md' : 'bg-white border hover:bg-gray-50';
+                html += '<button onclick="goToPage(' + i + ')" class="px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer ' + btnCls + '">' + i + '</button>';
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) html += '<span class="px-2 text-gray-400">...</span>';
+                html += '<button onclick="goToPage(' + totalPages + ')" class="px-3 py-1.5 bg-white border rounded-lg text-xs font-medium hover:bg-gray-50 cursor-pointer">' + totalPages + '</button>';
+            }
+
+            html += '<button onclick="changePage(' + (currentPage + 1) + ')" ' + (currentPage === totalPages ? 'disabled class="opacity-40 cursor-not-allowed px-3 py-1.5 bg-white border rounded-lg text-xs font-medium"' : 'class="px-3 py-1.5 bg-white border rounded-lg text-xs font-medium hover:bg-gray-50 cursor-pointer"') + '>下一页</button>';
+            container.innerHTML = html;
+        }
+
+        function changePage(page) {
+            var totalPages = Math.ceil(window.getTotalCount() / pageSize);
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderPaginatedProperties();
+            window.scrollTo({ top: 500, behavior: 'smooth' });
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderPaginatedProperties();
+            window.scrollTo({ top: 500, behavior: 'smooth' });
+        }
+
+        function filterProperties() {
+            currentPage = 1;
+            renderPaginatedProperties();
+        }
+
+        function renderButtons() {
+            var grid = document.getElementById('buttons-grid');
+            if (!grid) return;
+            var html = '';
+            for (var i = 1; i <= 3299; i++) {
+                html += '<a href="' + i + '.html" class="btn-item" target="_blank" title="医疗寄回分站 ' + i + '">' + i + '.医疗站</a>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function filterButtons() {
+            var keyword = document.getElementById('btn-search').value.toLowerCase().trim();
+            var buttons = document.getElementById('buttons-grid').getElementsByClassName('btn-item');
+            for (var i = 0; i < buttons.length; i++) {
+                var text = buttons[i].textContent.toLowerCase();
+                if (text.indexOf(keyword) !== -1) {
+                    buttons[i].style.display = 'flex';
+                } else {
+                    buttons[i].style.display = 'none';
+                }
+            }
+        }
+
+        window.onload = initWebsite;
+        initWebsite();
+    </script>
+</body>
+</html>
+<!-- ==================== 侧边悬浮在线客服悬浮组件 START ==================== -->
+<div id="side-support-widget" class="fixed right-0 top-1/2 -translate-y-1/2 z-[99999] flex items-center font-sans">
+    
+    <!-- 1. 折叠状态下的侧边吸附触发按钮 -->
+    <button id="support-toggle-btn" onclick="toggleSupportPanel()" class="bg-red-600 hover:bg-red-700 text-white p-3.5 rounded-l-2xl shadow-2xl flex flex-col items-center justify-center gap-1 cursor-pointer transition-all duration-300 border-l border-y border-red-500 group">
+        <span class="text-xl group-hover:scale-110 transition-transform">💬</span>
+        <span class="text-[11px] font-bold tracking-wider [writing-mode:vertical-lr] select-none">在线客服</span>
+    </button>
+
+    <!-- 2. 展开后的侧边客服面板 -->
+    <div id="support-panel" class="w-80 bg-white rounded-l-3xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 origin-right scale-x-0 w-0 opacity-0 pointer-events-none">
+        
+        <!-- 面板头部 -->
+        <div class="bg-gradient-to-r from-red-600 to-rose-700 text-white p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl">到位速遞</span>
+                <div>
+                    <h4 class="font-bold text-sm">全球医疗设备寄回中心</h4>
+                    <p class="text-[10px] text-red-100">7x24小时 全球专业客服团队在线</p>
+                </div>
+            </div>
+            <button onclick="toggleSupportPanel()" class="text-white/80 hover:text-white text-lg font-bold w-7 h-7 flex items-center justify-center rounded-full hover:bg-white/10 transition">×</button>
+        </div>
+
+        <!-- 面板内容区 -->
+        <div class="p-5 space-y-4 max-h-[75vh] overflow-y-auto">
+            
+            <!-- ① 官方在线客服直接跳转 -->
+            <a href="https://tawk.to/chat/61d24aa080b2296cfdd4bcf7/1foen70rk" target="_blank" class="flex items-center space-x-3 p-3 bg-red-50 hover:bg-red-100 rounded-2xl border border-red-100 transition group">
+                <div class="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center text-lg shadow group-hover:scale-105 transition">💬</div>
+                <div>
+                    <h5 class="text-xs font-bold text-red-900">网页在线客服对话</h5>
+                    <p class="text-[10px] text-red-600">点击立即与值班顾问实时沟通 →</p>
+                </div>
+            </a>
+
+            <!-- ② 微信扫码加客服 -->
+            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-center">
+                <p class="text-xs font-bold text-gray-800 mb-2">📱 微信扫码加专属客服</p>
+                <div class="bg-white p-2 rounded-xl shadow-sm inline-block border border-gray-200 mb-1">
+                    <!-- 二维码图片 -->
+                    <img src="https://cdn.pixabay.com/photo/2026/10/30/01/32/01-32-28-109_640.jpg" alt="微信客服二维码" class="w-32 h-32 object-contain mx-auto">
+                </div>
+                <p class="text-[11px] text-gray-500">微信号: <strong class="text-gray-900">fundes</strong></p>
+            </div>
+
+            <!-- ③ 快捷服务热线 -->
+            <div class="space-y-2 text-xs">
+                <div class="font-bold text-gray-700 flex items-center gap-1">☎️ 全球热线咨询：</div>
+                <div class="bg-gray-50 p-3 rounded-xl border border-gray-100 space-y-1.5 text-gray-600">
+                    <div class="flex justify-between items-center">
+                        <span>🇨🇦 加拿大专线：</span>
+                        <a href="tel:5145522066" class="font-bold text-red-600 hover:underline">514-552-2066</a>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>🇺🇸 美国/国际：</span>
+                        <a href="tel:4382287888" class="font-bold text-red-600 hover:underline">438-228-7888</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 面板底部标语 -->
+        <div class="bg-gray-900 text-gray-400 text-center py-2.5 text-[10px]">
+            © 2026 MedGlobal Express Logistics
+        </div>
+    </div>
+</div>
+
+<!-- 侧边客服交互脚本 -->
+<script>
+    function toggleSupportPanel() {
+        var panel = document.getElementById('support-panel');
+        var toggleBtn = document.getElementById('support-toggle-btn');
+        
+        if (panel.classList.contains('scale-x-0')) {
+            // 展开
+            panel.classList.remove('scale-x-0', 'w-0', 'opacity-0', 'pointer-events-none');
+            panel.classList.add('scale-x-100', 'w-80', 'opacity-100');
+            toggleBtn.style.display = 'none'; // 展开时隐藏侧边悬浮按钮
+        } else {
+            // 折叠
+            panel.classList.add('scale-x-0', 'w-0', 'opacity-0', 'pointer-events-none');
+            panel.classList.remove('scale-x-100', 'w-80', 'opacity-100');
+            toggleBtn.style.display = 'flex'; // 收起时显示侧边悬浮按钮
+        }
+    }
+</script>
+<!-- ==================== 侧边悬浮在线客服悬浮组件 END ==================== -->
+
+<!-- ================================================================= -->
+<!-- 🚨 终极销毁版：到位速递 / 到位国际 专属中央小窗口强弹（点击直接100%连根拔起删除） 🚨 -->
+<!-- ================================================================= -->
+<div id="dw_absolute_small_popup" style="display: none; position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; z-index: 9999999 !important; background: rgba(15, 23, 42, 0.6) !important; backdrop-filter: blur(5px) !important; -webkit-backdrop-filter: blur(5px) !important; align-items: center !important; justify-content: center !important; padding: 16px !important; box-sizing: border-box !important;">
+    
+    <!-- 🧠 核心小窗口主体（严格限制最大宽度为 480px，独立居中） -->
+    <div id="dw_small_box_body" style="position: relative !important; width: 100% !important; max-width: 480px !important; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important; border: 2px solid #d97706 !important; border-radius: 20px !important; padding: 30px 24px !important; color: #ffffff !important; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.5) !important; box-sizing: border-box !important; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important; transform: scale(0.9); opacity: 0; transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease-out !important;">
+        
+        <!-- ❌ 右上角绝对独立的关闭按钮（连根拔起删除流，框架也拦不住） -->
+        <button onclick="document.body.style.setProperty('overflow','auto','important'); this.closest('#dw_absolute_small_popup').remove();" style="position: absolute !important; top: 16px !important; right: 16px !important; width: 32px !important; height: 32px !important; border-radius: 50% !important; background: rgba(0,0,0,0.5) !important; border: 1px solid rgba(255,255,255,0.2) !important; color: #ffffff !important; font-size: 16px !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; font-weight: bold !important; z-index: 10000000 !important; padding: 0 !important; line-height: 1 !important;">✕</button>
+
+        <!-- 弹窗头部 -->
+        <div style="text-align: center !important; margin-bottom: 20px !important;">
+            <span style="background: #d97706 !important; color: #ffffff !important; font-size: 10px !important; font-weight: bold !important; padding: 4px 12px !important; border-radius: 50px !important; text-transform: uppercase !important; letter-spacing: 1.5px !important; display: inline-block !important; box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;">24/7 Live Support</span>
+            <h2 style="font-size: 22px !important; font-weight: 800 !important; margin: 12px 0 6px 0 !important; color: #ffffff !important; letter-spacing: -0.02em !important; line-height: 1.2 !important;">联系我们与专属客服</h2>
+            <p style="color: #94a3b8 !important; font-size: 13px !important; margin: 0 !important; line-height: 1.5 !important;">到位速递 / 到位国际 医疗物流专家团队全天候一对一合规咨询服务。</p>
+        </div>
+
+        <!-- 纵向排列联系面板 -->
+        <div style="display: flex !important; flex-direction: column !important; gap: 16px !important;">
+            
+            <!-- 1. 微信快捷联系 -->
+            <div style="display: flex !important; align-items: center !important; background: rgba(255,255,255,0.03) !important; padding: 12px !important; border-radius: 12px !important; border: 1px solid rgba(217, 119, 6, 0.15) !important; box-sizing: border-box !important;">
+                <div style="background: #ffffff !important; padding: 6px !important; border-radius: 8px !important; margin-right: 14px !important; flex-shrink: 0 !important; display: inline-block !important;">
+                    <img src="https://cdn.pixabay.com/photo/2026/10/30/01/32/01-32-28-109_640.jpg" alt="官方微信客服二维码" style="width: 70px !important; height: 70px !important; display: block !important; object-fit: contain !important; border: none !important;">
+                </div>
+                <div style="text-align: left !important;">
+                    <span style="https://cdn.pixabay.com/photo/2026/10/30/01/32/01-32-28-109_640.jpg">📱 微信扫码添加</span>
+                    <p style="font-size: 12px !important; color: #e2e8f0 !important; margin: 6px 0 0 0 !important; font-weight: bold !important;">微信号：<span style="color: #ffffff !important; font-size: 14px !important;">fundes</span></p>
+                </div>
+            </div>
+
+            <!-- 2. 全球热线面板 -->
+            <div style="background: rgba(15, 23, 42, 0.4) !important; padding: 14px !important; border-radius: 12px !important; border: 1px solid rgba(255,255,255,0.05) !important; font-size: 12px !important; line-height: 1.8 !important; text-align: left !important; box-sizing: border-box !important;">
+                <div style="color: #fcd34d !important; font-weight: 700 !important; margin-bottom: 6px !important; display: flex !important; align-items: center !important;">
+                    <span style="margin-right: 6px !important; font-size: 14px !important;">☎️</span> 全球业务热线 (24小时值班)
+                </div>
+                <div style="color: #cbd5e1 !important;">
+                    <div>🇨🇦 <strong>蒙特利尔总线：</strong>+1 (438) 228-7888</div>
+                    <div>🇺🇸 <strong>纽约业务热线：</strong>+1 (917) 621-0118</div>
+                    <div>🇨🇦 <strong>温哥华办事处：</strong>+1 (778) 383-2208</div>
+                    <div>📧 <strong>欧洲专属客服：</strong>+372 81524808</div>
+                </div>
+            </div>
+
+            <!-- 3. 在线客服直达系统 -->
+            <a href="https://tawk.to/chat/61d24aa080b2296cfdd4bcf7/1foen70rk" target="_blank" style="display: block !important; text-align: center !important; background: #d97706 !important; color: #ffffff !important; font-weight: 600 !important; padding: 13px 20px !important; border-radius: 12px !important; text-decoration: none !important; box-shadow: 0 4px 12px rgba(217,119,6,0.3) !important; font-size: 14px !important; transition: background 0.2s !important;">🚀 点击进入在线系统（即时响应）</a>
+        </div>
+
+        <!-- 底部独立的关闭文本链接（同样执行连根拔起销毁） -->
+        <div style="text-align: center !important; margin-top: 16px !important;">
+            <button onclick="document.body.style.setProperty('overflow','auto','important'); this.closest('#dw_absolute_small_popup').remove();" style="background: none !important; border: none !important; color: #64748b !important; text-decoration: underline !important; font-size: 12px !important; cursor: pointer !important; padding: 5px !important;">暂不需要，先看看网页</button>
+        </div>
+    </div>
+</div>
+
+<!-- ⚙️ 强力安全隔离执行脚本 -->
+<script>
+    (function() {
+        function dw_launch_popup() {
+            var mask = document.getElementById("dw_absolute_small_popup");
+            var body = document.getElementById("dw_small_box_body");
+            if (mask && body) {
+                mask.style.setProperty('display','flex','important');
+                setTimeout(function() {
+                    body.style.transform = "scale(1)";
+                    body.style.opacity = "1";
+                }, 50);
+                document.body.style.setProperty('overflow','hidden','important');
+            }
+        }
+        setTimeout(function() {
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", dw_launch_popup);
+            } else {
+                dw_launch_popup();
+            }
+        }, 500);
+    })();
+</script>
+<!-- ================================================================= -->
+
